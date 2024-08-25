@@ -1,0 +1,94 @@
+git init
+    -Iniatialize new git repo
+
+git clone https://PAT@github.com/DragonMage899/repoName.git
+    -Clone repo to local
+
+git remote add origin https://PAT@github.com/DragonMage899/repoName.git
+    -Adds new repo
+
+git status
+    -Show state of dir
+
+git add file.txt
+    -add file
+
+git commit -m "Comment"
+    -Commit staged changes with comment
+
+git push origin <Branch>
+    -Push changes to Branch
+
+git pull
+    -Fetches changes from remote repo and merge into current
+
+git branch 
+    -List branches
+
+git branch newBranchName
+    -Add a branch
+
+git checkout BranchName 
+    -Switch to specified Branch
+
+git branch -b newBranchName
+    -Create and Switch to branch
+
+git merge BranchName
+    -Merge branch into current one
+
+git rebase BranchName
+    -Reapply commits from current on top of another
+
+git log 
+    -Display commit history
+
+git log --oneline 
+    -single line summary for each
+
+git diff
+    -See changes in working 
+
+git diff --staged  
+    -See changes between last commit and staged
+
+git reset file.txt
+    -Unstage file
+
+git checkout -- file.txt
+    -Revert to last commited state
+
+git revert <commit>
+    -Makes a new commit that undoes changes of <commit>
+
+git reset --hard <commit>
+    -resets current branch to specified commit
+
+git stash
+    -Save changes in working that aren't readt to be commited
+
+git stash pop
+    -Applies stashed changes back to working dir and remove from stash
+
+git stash list 
+    -List all stashed changes
+
+git remote -v
+    -Display urls of remote repos
+
+git fetch origin
+    -Download objects from repo without merging
+
+git tag / git tag v1.0
+    -List/Create Tags
+
+git push origin <tag>
+    -Push tag to remote repo
+
+
+---
+Stage changes:
+git add .
+git status
+git commit -m "comment"
+git push origin BranchName
