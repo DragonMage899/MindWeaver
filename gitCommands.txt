@@ -92,3 +92,10 @@ git add .
 git status
 git commit -m "comment"
 git push origin BranchName
+
+
+---
+Discard changes and pull:
+git reset --hard
+git clean -fd
+git pull origin main

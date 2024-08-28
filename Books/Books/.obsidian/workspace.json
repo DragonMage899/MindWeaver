@@ -6,7 +6,7 @@
       {
         "id": "ae69080ee9f54590",
         "type": "tabs",
-        "dimension": 70.74873096446701,
+        "dimension": 70.748730964467,
         "children": [
           {
             "id": "bb129ff7e6eb0c99",
@@ -58,7 +58,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clean Code/CH2 Meaningful Names.md",
+                "file": "Welcome.md",
                 "mode": "source",
                 "source": false
               }
@@ -70,7 +70,7 @@
       {
         "id": "b667214d7c131f80",
         "type": "tabs",
-        "dimension": 29.251269035532996,
+        "dimension": 29.251269035532992,
         "children": [
           {
             "id": "54fc1272c5bffbcd",
@@ -146,7 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Clean Code/CH2 Meaningful Names.md",
+                "file": "Welcome.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -163,7 +163,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Clean Code/CH2 Meaningful Names.md",
+                "file": "Welcome.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -186,7 +186,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Clean Code/CH2 Meaningful Names.md"
+                "file": "Welcome.md"
               }
             }
           }
@@ -207,10 +207,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "155d1a4dd64b560c",
+  "active": "6ba49bf29ffcccee",
   "lastOpenFiles": [
-    "Clean Code/CH1 Clean Code.md",
     "Clean Code/CH2 Meaningful Names.md",
+    "Clean Code/CH1 Clean Code.md",
     "Clean Code/Pasted image 20240825144333.png",
     "Clean Code/Pasted image 20240825143757.png",
     "Clean Code/smells and heuristics.pdf",

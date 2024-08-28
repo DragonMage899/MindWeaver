@@ -6,33 +6,17 @@
       {
         "id": "b4dc559782d4bb18",
         "type": "tabs",
-        "dimension": 55.0761421319797,
         "children": [
           {
-            "id": "ed877443e669823a",
+            "id": "6007f97ada5c3c2c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Welcome.md",
+                "file": "Google cyber course/Foundations in Cyber Security.md",
                 "mode": "source",
                 "source": false
               }
-            }
-          }
-        ]
-      },
-      {
-        "id": "e846be04ab61fdd0",
-        "type": "tabs",
-        "dimension": 44.923857868020306,
-        "children": [
-          {
-            "id": "d0508546ed4425c1",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
             }
           }
         ]
@@ -101,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Google cyber course/Foundations in Cyber Security.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -117,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Google cyber course/Foundations in Cyber Security.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Google cyber course/Foundations in Cyber Security.md"
+              }
             }
           }
         ]
@@ -158,8 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d0508546ed4425c1",
+  "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
-    "Welcome.md"
+    "Google cyber course/Pasted image 20240828183048.png",
+    "Welcome.md",
+    "Google cyber course/Foundations in Cyber Security.md",
+    "Google cyber course/Personal notes.md",
+    "Google cyber course"
   ]
 }
