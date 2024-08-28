@@ -1,0 +1,3 @@
+- Like the idea of continuous learning
+- Learning a broad field but still specializing
+- Flexible career path
