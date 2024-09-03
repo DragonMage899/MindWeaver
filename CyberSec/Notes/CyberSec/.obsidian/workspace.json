@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Google cyber course/Foundations in Cyber Security.md",
+                "file": "TryHackMe/SOC lvl1/Basics.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Google cyber course/Foundations in Cyber Security.md",
+                "file": "TryHackMe/SOC lvl1/Basics.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Google cyber course/Foundations in Cyber Security.md",
+                "file": "TryHackMe/SOC lvl1/Basics.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Google cyber course/Foundations in Cyber Security.md"
+                "file": "TryHackMe/SOC lvl1/Basics.md"
               }
             }
           }
@@ -148,10 +148,16 @@
   },
   "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
-    "Google cyber course/Pasted image 20240828183048.png",
-    "Welcome.md",
-    "Google cyber course/Foundations in Cyber Security.md",
     "Google cyber course/Personal notes.md",
+    "TryHackMe/SOC lvl1/Basics.md",
+    "TryHackMe/SOC lvl1",
+    "TryHackMe",
+    "HackTheBox/PenTesting/Basics.md",
+    "HackTheBox/PenTesting",
+    "HackTheBox",
+    "Google cyber course/Pasted image 20240828183048.png",
+    "Google cyber course/Foundations in Cyber Security.md",
+    "Welcome.md",
     "Google cyber course"
   ]
 }
