@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TryHackMe/SOC lvl1/Basics.md",
+                "file": "TryHackMe/Order.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TryHackMe/SOC lvl1/Basics.md",
+                "file": "TryHackMe/Order.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TryHackMe/SOC lvl1/Basics.md",
+                "file": "TryHackMe/Order.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,16 +125,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TryHackMe/SOC lvl1/Basics.md"
+                "file": "TryHackMe/Order.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -148,15 +148,19 @@
   },
   "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
-    "Google cyber course/Personal notes.md",
+    "Google cyber course/Course 1/History of Cybersecurity.md",
+    "TryHackMe/Order.md",
+    "Google cyber course/Course 1/Foundations in Cyber Security.md",
+    "Untitled",
+    "Google cyber course/Course 1",
     "TryHackMe/SOC lvl1/Basics.md",
+    "Google cyber course/Personal notes.md",
     "TryHackMe/SOC lvl1",
     "TryHackMe",
     "HackTheBox/PenTesting/Basics.md",
     "HackTheBox/PenTesting",
     "HackTheBox",
     "Google cyber course/Pasted image 20240828183048.png",
-    "Google cyber course/Foundations in Cyber Security.md",
     "Welcome.md",
     "Google cyber course"
   ]
