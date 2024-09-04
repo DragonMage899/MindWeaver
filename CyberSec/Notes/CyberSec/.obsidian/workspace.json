@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TryHackMe/Order.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TryHackMe/Order.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TryHackMe/Order.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TryHackMe/Order.md"
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md"
               }
             }
           }
@@ -148,8 +148,11 @@
   },
   "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
-    "Google cyber course/Course 1/History of Cybersecurity.md",
+    "Pasted image 20240903213353.png",
     "TryHackMe/Order.md",
+    "TryHackMe/1. Intro to Cyber Sec/Intro.md",
+    "TryHackMe/1. Intro to Cyber Sec",
+    "Google cyber course/Course 1/History of Cybersecurity.md",
     "Google cyber course/Course 1/Foundations in Cyber Security.md",
     "Untitled",
     "Google cyber course/Course 1",
