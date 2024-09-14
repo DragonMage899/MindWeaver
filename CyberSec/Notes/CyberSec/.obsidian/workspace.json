@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
+                "file": "Google cyber course/Course 1/Frameworks and Controls.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
+                "file": "Google cyber course/Course 1/Frameworks and Controls.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
+                "file": "Google cyber course/Course 1/Frameworks and Controls.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md"
+                "file": "Google cyber course/Course 1/Frameworks and Controls.md"
               }
             }
           }
@@ -148,16 +148,18 @@
   },
   "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
+    "Google cyber course/Course 1/History of Cybersecurity.md",
+    "Google cyber course/Course 1/Frameworks and Controls.md",
+    "Google cyber course/Course 1/Foundations in Cyber Security.md",
+    "Google cyber course/Course 1/CISSP Security Domains.md",
+    "Google cyber course/Personal notes.md",
+    "TryHackMe/1. Intro to Cyber Sec/Intro.md",
     "Pasted image 20240903213353.png",
     "TryHackMe/Order.md",
-    "TryHackMe/1. Intro to Cyber Sec/Intro.md",
     "TryHackMe/1. Intro to Cyber Sec",
-    "Google cyber course/Course 1/History of Cybersecurity.md",
-    "Google cyber course/Course 1/Foundations in Cyber Security.md",
     "Untitled",
     "Google cyber course/Course 1",
     "TryHackMe/SOC lvl1/Basics.md",
-    "Google cyber course/Personal notes.md",
     "TryHackMe/SOC lvl1",
     "TryHackMe",
     "HackTheBox/PenTesting/Basics.md",
