@@ -1,0 +1,15 @@
+docker compose watch
+    -Start local host instance (node)
+
+docker build -t DragonMage899/DockerRepoName
+    -Build image
+
+docker image ls 
+    -Check built image 
+
+docker push DragonMage899/DockerRepoName
+    -Push to Docker Repo : https://hub.docker.com/repository/docker/dragonmage899
+
+Fundamentals:
+    -https://docs.docker.com/get-started/introduction/whats-next/
+    
