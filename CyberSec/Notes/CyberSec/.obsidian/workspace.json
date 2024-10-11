@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Google cyber course/Course 1/3. Protection.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Google cyber course/Course 1/3. Protection.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Google cyber course/Course 1/3. Protection.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Google cyber course/Course 1/3. Protection.md"
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md"
               }
             }
           }
@@ -146,17 +146,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ce421d85e7e36d53",
+  "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
+    "TryHackMe/Order.md",
+    "Google cyber course/Course 1/3. Protection.md",
     "Google cyber course/Untitled",
     "Google cyber course/Course 1/2. Evolution of Cyber Sec.md",
     "Google cyber course/Course 1/1. Intro to Cyber Sec.md",
-    "Google cyber course/Course 1/3. Protection.md",
     "Google cyber course/Course 1/CISSP Security Domains.md",
     "Google cyber course/Personal notes.md",
     "TryHackMe/1. Intro to Cyber Sec/Intro.md",
     "Pasted image 20240903213353.png",
-    "TryHackMe/Order.md",
     "TryHackMe/1. Intro to Cyber Sec",
     "Untitled",
     "Google cyber course/Course 1",
