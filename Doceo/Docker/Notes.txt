@@ -1,0 +1,14 @@
+Docker:
+-A way to package software so that it can run on any hardware
+
+DockerFile: Blueprint for building a docker image
+    -Define environment
+
+Image: Template for running Docker containers
+    -Used to rebuild image
+    -Uploaded the cloud
+    -Devs download image to image to create a container
+    -One image file can be used to spawn multiple Containers at diff places and time
+
+Container: Running processes of image
+
