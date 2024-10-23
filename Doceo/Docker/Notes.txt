@@ -12,3 +12,5 @@ Image: Template for running Docker containers
 
 Container: Running processes of image
 
+Once Daemon is running we can run some docker commands:
+    -Docker ps : List of currently running containers
