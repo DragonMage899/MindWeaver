@@ -1,0 +1,5 @@
+sudo cp -r SFML/include/SFML /usr/local/include/
+sudo cp -r SFML/lib/* /usr/local/lib/
+sudo cp -r SFML/pkgconfig/* /usr/local/lib/pkgconfig/
+sudo cp -r SFML/share/* /usr/local/share/
+sudo ldconfig
