@@ -21,7 +21,11 @@ class Tile
 
     /* Tile variant, allowing for different looking versions of the
      * same tile */
-    int tileVariant;
+    int tileVariant; // Time Line ca
+        //Use this to manage upgrades
+        //i.e) if shop and tileVariant = 2 -> 2*maxPopPerLevel 
+        //Can also be used to store state (i.e road orientation)
+        //or any other object transformation
 
     /* Region IDs of the tile, tiles in the same region are connected.
      * First is for transport */

@@ -41,6 +41,7 @@ class AnimationHandler
     float t; //use to determine when next frame should occur
 
     int currentAnim; //Vertical index of texture grid
+    //index for our animations vector
 
     public:
 
