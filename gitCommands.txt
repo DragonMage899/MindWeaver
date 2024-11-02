@@ -106,3 +106,4 @@ git checkout feature-branch
 git pull origin feature-branch
 git checkout dev
 git merge feature-branch
+git push -u origin dev
