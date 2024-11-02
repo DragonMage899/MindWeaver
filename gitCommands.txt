@@ -107,3 +107,10 @@ git pull origin feature-branch
 git checkout dev
 git merge feature-branch
 git push -u origin dev
+
+---
+Force restore backed up main
+git checkout main
+git reset --hard mainCopy
+git push origin main --force
+
