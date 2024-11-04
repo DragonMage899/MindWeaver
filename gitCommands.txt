@@ -37,6 +37,9 @@ git branch -b newBranchName
 git merge BranchName
     -Merge branch into current one
 
+git checkout -f MediatorTesting
+    -Checkout and discard changes
+
 git rebase BranchName
     -Reapply commits from current on top of another
 
