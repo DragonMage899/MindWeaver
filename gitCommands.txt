@@ -37,9 +37,6 @@ git branch -b newBranchName
 git merge BranchName
     -Merge branch into current one
 
-git checkout -f MediatorTesting
-    -Checkout and discard changes
-
 git rebase BranchName
     -Reapply commits from current on top of another
 
@@ -116,4 +113,8 @@ Force restore backed up main
 git checkout main
 git reset --hard mainCopy
 git push origin main --force
+
+---
+Checkout and discard changes
+git checkout -f main
 
