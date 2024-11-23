@@ -30,6 +30,7 @@ class Tile
     /* Region IDs of the tile, tiles in the same region are connected.
      * First is for transport */
     unsigned int regions[1];
+        //Each region has a unique identifier (can be used for communications)
 
     /* Placement cost of the tile */
     unsigned int cost;

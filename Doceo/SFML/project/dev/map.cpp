@@ -96,9 +96,6 @@ void Map::draw(sf::RenderWindow& window, float dt)
             pos.y = (x + y) * this->tileSize * 0.5;
             this->tiles[y*this->width+x].sprite.setPosition(pos);
 
-            /* Draw the tile */
-            this->tiles[y*this->width+x].draw(window, dt);
-
             if(this->selected[y*this->width+x])
                 this->tiles[y*this->width+x].sprite.setColor(sf::Color(0x7d, 0x7d, 0x7d));
             else

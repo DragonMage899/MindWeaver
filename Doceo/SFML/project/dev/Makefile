@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -c
+CXXFLAGS = -c -std=c++11
 LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
 SOURCES = $(filter-out main.cpp, $(wildcard *.cpp))

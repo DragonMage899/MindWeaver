@@ -1,0 +1,7 @@
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/citybuilder.dir
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/edit_cache.dir
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/rebuild_cache.dir
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/list_install_components.dir
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/install.dir
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/install/local.dir
+/home/Dragon/Code/Github/MindWeaver/Doceo/SFML/project/Parts/Part 1 - State Manager/build/CMakeFiles/install/strip.dir

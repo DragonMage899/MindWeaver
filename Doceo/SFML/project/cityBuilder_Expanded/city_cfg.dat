@@ -1,0 +1,14 @@
+width=64
+height=64
+day=0
+populationPool=2000
+employmentPool=1000
+population=2000
+employable=1000
+birthRate=0.00055
+deathRate=0.00023
+residentialTax=0.05
+commercialTax=0.05
+industrialTax=0.05
+funds=30000
+earnings=0

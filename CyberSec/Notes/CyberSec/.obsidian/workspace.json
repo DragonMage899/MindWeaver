@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Google cyber course/Course 1/3. Protection.md",
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "Intro"
             }
           }
         ]
@@ -39,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +58,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +68,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -93,7 +101,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 3. Protection"
             }
           },
           {
@@ -105,7 +115,9 @@
                 "file": "Google cyber course/Course 1/3. Protection.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 3. Protection"
             }
           },
           {
@@ -116,7 +128,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Google cyber course/Course 1/3. Protection.md"
-              }
+                "file": "TryHackMe/1. Intro to Cyber Sec/Intro.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Intro"
             }
           }
         ],
@@ -148,26 +164,26 @@
   },
   "active": "6007f97ada5c3c2c",
   "lastOpenFiles": [
-    "TryHackMe/1. Intro to Cyber Sec/Intro.md",
     "TryHackMe/Order.md",
-    "Google cyber course/Course 1/3. Protection.md",
-    "Google cyber course/Untitled",
-    "Google cyber course/Course 1/2. Evolution of Cyber Sec.md",
-    "Google cyber course/Course 1/1. Intro to Cyber Sec.md",
-    "Google cyber course/Course 1/CISSP Security Domains.md",
-    "Google cyber course/Personal notes.md",
+    "TryHackMe/SOC lvl1/Basics.md",
+    "TryHackMe/1. Intro to Cyber Sec/Intro.md",
     "Pasted image 20240903213353.png",
+    "Welcome.md",
+    "Google cyber course/Course 1/1. Intro to Cyber Sec.md",
+    "Google cyber course/Course 1/2. Evolution of Cyber Sec.md",
+    "Google cyber course/Course 1/3. Protection.md",
+    "Google cyber course/Pasted image 20240828183048.png",
+    "Google cyber course/Personal notes.md",
+    "Google cyber course/Untitled",
+    "Google cyber course/Course 1/CISSP Security Domains.md",
     "TryHackMe/1. Intro to Cyber Sec",
     "Untitled",
     "Google cyber course/Course 1",
-    "TryHackMe/SOC lvl1/Basics.md",
     "TryHackMe/SOC lvl1",
     "TryHackMe",
     "HackTheBox/PenTesting/Basics.md",
     "HackTheBox/PenTesting",
     "HackTheBox",
-    "Google cyber course/Pasted image 20240828183048.png",
-    "Welcome.md",
     "Google cyber course"
   ]
 }

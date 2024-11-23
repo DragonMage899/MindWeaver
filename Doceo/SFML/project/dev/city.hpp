@@ -37,6 +37,7 @@ class City
     double birthRate;
     double deathRate;
 
+    //move citizens around
     double distributePool(double& pool, Tile& tile, double rate);
 
     public:
@@ -73,7 +74,7 @@ class City
         this->earnings = 0;
         this->funds = 0;
         this->currentTime = 0.0;
-        this->timePerDay = 1.0;
+        this->timePerDay = 0.1;
         this->day = 0;
     }
 
@@ -86,10 +87,11 @@ class City
     void load(std::string cityName, std::map<std::string, Tile>& tileAtlas);
     void save(std::string cityName);
 
-    void update(float dt);
-    void bulldoze(const Tile& tile);
-    void shuffleTiles();
-    void tileChanged();
+    void update(float dt); //Move people around
+    void bulldoze(const Tile& tile); 
+    void shuffleTiles(); //randomize tiles
+    void tileChanged(); //Update tile orientation
+    void adjustPopulation(double popPool, double birthRate, double deathRate);
 
     double getHomeless() { return this->populationPool; }
     double getUnemployed() { return this->employmentPool; }

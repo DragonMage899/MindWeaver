@@ -39,4 +39,7 @@ SOC's
 	- Monitor for network intrusions (link)
 
 **Threat Intelligence**
-- 
+- Intelligence -> info about actual and potential enemies
+- Threat -> Action than can disrupt a system
+- Collection information to build a threat informed defence.
+- Build intelligence by collecting, processing and analysing data
