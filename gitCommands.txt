@@ -99,3 +99,22 @@ Discard changes and pull:
 git reset --hard
 git clean -fd
 git pull origin main
+
+---
+Merge conflicting branch:
+git checkout feature-branch
+git pull origin feature-branch
+git checkout dev
+git merge feature-branch
+git push -u origin dev
+
+---
+Force restore backed up main
+git checkout main
+git reset --hard mainCopy
+git push origin main --force
+
+---
+Checkout and discard changes
+git checkout -f main
+
