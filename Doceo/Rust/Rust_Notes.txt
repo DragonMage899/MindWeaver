@@ -1,0 +1,60 @@
+Commands---------------------------------------------------
+
+Install (unix)
+- curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+Install rustup:
+- sudo pacman -S rustup
+
+Open Book:
+- rustup doc --book
+
+Creating a cargo project:
+- cargo new proj_name //Create a new dir with name proj_name with src folder and toml
+
+Building With cargo:
+// cd into proj_name
+- cargo build
+    // new dir with exec file: target/debug/exec
+- ./target/debug/proj_name to run
+    OR
+
+Check for errors b4 compiling:
+- cargo check
+
+Build and Run:
+- cargo run 
+
+Build for release:
+- cargo build -release 
+    //build with optimizations in release folder
+
+Update packages:
+- cargo update 
+    //will ignore lock file
+
+Opening docs for a proj:
+- cargo doc --open
+----------------------------------------------------------
+
+Notes:
+
+--Cargo
+Cargo -> Build System
+    Manages building, crate downloads, crate building etc 
+    Expects source code to be ion src folder,
+    top dir for readme, license etc...
+Cargo commands are not os dependent 
+
+--Prelude
+-> Automatic Imports: file:///home/Dragon/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/std/prelude/index.html
+
+
+--Crates
+-> Modify carg.toml to include source code from external Crates
+e.g randoom func:
+    [dependencies]
+    rand = "0.8.5"
+
+Lock file saves current version of crates
+
