@@ -1,4 +1,6 @@
-Commands---------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
+Commands
+--------
 
 Install (unix)
 - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -35,11 +37,18 @@ Update packages:
 
 Opening docs for a proj:
 - cargo doc --open
-----------------------------------------------------------
 
-Notes:
 
---Cargo
+IF NO SQUIGGLES:
+- rustup component add rust-analysis --toolchain stable-x86_64-unknown-linux-gnu
+- rustup component add rust-src --toolchain stable-x86_64-unknown-linux-gnu
+- rustup component add rls --toolchain stable-x86_64-unknown-linux-gnu
+<https://github.com/rust-lang/vscode-rust/issues/835#issuecomment-725426724>
+
+--------------------------------------------------------------------------------------------------------------------
+Cargo
+-----
+
 Cargo -> Build System
     Manages building, crate downloads, crate building etc 
     Expects source code to be ion src folder,
@@ -58,3 +67,164 @@ e.g randoom func:
 
 Lock file saves current version of crates
 
+--------------------------------------------------------------------------------------------------------------------
+Statements vs Expressions 
+-------------------------
+Function bodies are made up of a series of Statements
+
+Statement: Instructions that perform and action and don't return a value
+Expression: Evaluate to a resultant value
+    i.e> can appear on rhs (kinda)
+
+let x = 0; -> Statement
+x = y = 6 not valid in Rust
+    Since let y = 6 does not return anything (Statement)
+    x has nothing to bind to
+
+5 + 6; -> Expression
+    Evaluates to some value
+{Code} is an expression
+    let x = {let y = 4; y + 1};
+    Is valid
+Expressions DON'T end with ;
+if you add a ';' it becomes a statement
+
+--------------------------------------------------------------------------------------------------------------------
+Ownership
+---------
+-> Set of rules that govern memory management 
+
+HeapStack
+    When your code calls a function, the values passed into the function (including, potentially, pointers to data on the heap) 
+    and the function’s local variables get pushed onto the stack. When the function is over, those values get popped off the stack.
+    -> Reason for stack alignment in asm
+
+Rules:
+    - Each value must have an owner.
+    - There can only be one owner at a time.
+    - When the owner goes out of scope, the value will be dropped.
+
+Note: Rust always makes shallow copies (moves)
+
+NOTE:
+    let x = 5;
+    let mut y = x;
+    y = y + 3;
+    println!("x = {x}, y = {y}");
+Seems to violate the move principle
+This principle only aplies to objects with heap allocation
+Since from a processing pov a deep copy and shallow would cost the same
+
+Objects (which go on the stack) that implement the Copy trait
+always copy and don't move when assigned (still valid after assignment used)
+
+If the Drop trait is implemented, then Copy can't be used
+
+Variables passed into a function will move or copy (same as assignment)
+
+fn main() {
+    let s = String::from("hello");  // s comes into scope
+    takes_ownership(s);             // s's value moves into the function...
+                                    // ... and so is no longer valid here
+
+    let x = 5;                      // x comes into scope
+
+    makes_copy(x);                  // x would move into the function,
+                                    // but i32 is Copy, so it's okay to still
+                                    // use x afterward
+
+    let s2 = String::from("hello");     // s2 comes into scope
+
+    let s3 = takes_and_gives_back(s2);  // s2 is moved into
+                                        // takes_and_gives_back, which also
+                                        // moves its return value into s3
+} // Here, s3 goes out of scope and is dropped. s2 was moved, so nothing
+  // happens. s1 goes out of scope and is dropped.
+s2 moved to s3
+
+
+Using s after calling takes_ownership will produce an error
+
+---------
+Refrences and Borrowing
+
+-> Needing to return back a value each time if used in a function is tedious, esp with multiple args
+then need to use a return tuple
+
+This can be avoided with Ref and Borrowing
+
+Refrence: Pass on data owned by another object to the function
+(similar to a ptr, but a ref is always guranteed to point to a valid value, not null)
+
+
+When passing a mutable reference, the function can only take a single reference to any value:
+    let r1 = &mut s;
+    let r2 = &mut s;
+    println!("{}, {}", r1, r2);
+Double mutable borrow not allowed
+Not valid
+
+Also not valid:
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    let r3 = &mut s; // BIG PROBLEM
+
+    println!("{}, {}, and {}", r1, r2, r3);
+Can't have a mutable and non mutable reference to a value at the same time
+"Users of an immutable reference don’t expect the value to suddenly change out from under them! However, 
+multiple immutable references are allowed because no one who is just reading the data has the ability to affect anyone else’s reading of the data."
+
+This is valid
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    println!("{r1} and {r2}");
+    // variables r1 and r2 will not be used after this point
+
+    //r1 and r2 not used after this, thus out of scope (done at compile time)
+
+    let r3 = &mut s; // no problem
+    println!("{r3}");
+
+fn dangle() -> &String { // dangle returns a reference to a String
+
+    let s = String::from("hello"); // s is a new String
+
+    &s // we return a reference to the String, s
+} // Here, s goes out of scope, and is dropped. Its memory goes away.
+  // Danger!
+
+The solution here is to return the String directly:
+
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
+}
+
+
+The Rules of References:
+    - At any given time, you can have either one mutable reference or any number of immutable references.
+    - References must always be valid.
+
+
+-----
+Slice Type
+
+Slice -> allows us to reference a contigious sequence of elements in a collection
+    Does not have owernership (like a reference)
+
+    returns a string literal from index 10 till end
+&s[10..s.len()]
+
+The concepts of ownership, borrowing, and slices ensure memory safety in Rust programs at compile time. 
+The Rust language gives you control over your memory usage in the same way as other systems programming languages, 
+but having the owner of data automatically clean up that data when the owner goes out of scope 
+means you don’t have to write and debug extra code to get this control.
+
+--------------------------------------------------------------------------------------------------------------------
+Structs
+---------

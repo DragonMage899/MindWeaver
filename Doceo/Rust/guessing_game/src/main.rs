@@ -45,6 +45,7 @@ fn main() {
         //-> Pattern to match against
         //Take a value and iterate through a list of patterns 
 
+        //match a {List of possible a returns}
         match guess.cmp(&secret_number){ //returns a variant of Ordering 
             Ordering::Less => println!("Too Low!"),
             Ordering::Greater => println!("Too High!"),
