@@ -39,6 +39,10 @@ Opening docs for a proj:
 - cargo doc --open
 
 
+Add a new library crate:
+- cargo new lib_name --lib
+
+
 IF NO SQUIGGLES:
 - rustup component add rust-analysis --toolchain stable-x86_64-unknown-linux-gnu
 - rustup component add rust-src --toolchain stable-x86_64-unknown-linux-gnu
@@ -258,3 +262,221 @@ Tupple Structs
         let black = Color(0, 0, 0);
         let origin = Point(0, 0, 0);
     }
+
+Structs: Grouping of related fields with implementation
+    #[derive(Debug)]
+    struct Rectangle{
+        width: u32,
+        height: u32
+    }
+
+    impl Rectangle{
+        fn area(&self) -> u32{ //&mut self and self also allowed, self will take ownership
+            self.width * self.height
+        }
+
+        fn can_hold(&self, rect2: &Rectangle) -> bool{
+            //Expression lanfuages are cool :3
+            self.height > rect2.height && self.width > rect2.width
+        }
+
+        //Helpers / constructors
+        fn square(size: u32) -> Self{ //Can go in another impl block if needed
+            Self{
+                width: size,
+                height: size
+            }
+        }
+    }
+
+
+--------------------------------------------------------------------------------------------------------------------
+Enums
+-----
+
+-> Value is part of a set of values
+
+define an enum with possible values.
+funtions can now take in a enum irrelevalnt of value assign
+
+Data can be plaes into enum variants:
+    enum IpAddr {
+        V4(String),
+        V6(String),
+    }
+
+Options:
+    let _some_number: Option<i32> = Some(5);
+        //Only form of null in rust
+    let _absent_number: Option<i32> = None;
+Null is an opt in
+Nulls can only occur under data types defined withn option
+i.e) If you don't see Option<T> you can assume the value is not null
+->file:///home/Dragon/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/std/option/enum.Option.html
+
+---
+Matching
+    enum Coin {
+        Penny,
+        Nickel,
+        Dime,
+        Quarter,
+    }
+
+    fn _value_in_cents(coin: Coin) -> u8 {
+        match coin {
+            Coin::Penny => 1,
+            Coin::Nickel => 5,
+            Coin::Dime => 10,
+            Coin::Quarter(state) =>{println!("State -> {state:?}"); 25}
+        }
+    }
+
+    #[derive(Debug)] // so we can inspect the state in a minute
+    enum UsState {
+        Alabama,
+        Alaska
+    }
+
+
+
+    {} -> arms consist of pattern and some code
+    Pattern => code to run
+
+We use matching to extract a value out of an enum
+
+Matching with options:
+match against an enum (options), bind a variable to the data inside, and then execute code based on it. 
+
+Note: Matches are exhaustive, must have all possible patterns
+
+
+---
+Catch all patterns and _ Placeholder
+
+    let dice_roll = some number;
+    
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        other => move_player(other),
+    }
+Requirement for exhaustion met
+    -> catch all arm must come at end (goes in order)
+    other can also be "_"
+        -> _ matches and does not bind
+
+    _ => ()
+    is valid -> nothing happens
+
+---
+If let
+    The syntax if let takes a pattern and an expression separated by an equal sign.
+    It works the same way as a match, where the expression is given to the match and the pattern is its first arm.
+
+    Using if let means less typing, less indentation, and less boilerplate code. However, 
+    you lose the exhaustive checking that match enforces. 
+    Choosing between match and if let depends on what you’re doing in your particular situation 
+    and whether gaining conciseness is an appropriate trade-off for losing exhaustive checking.
+
+    let mut count = 0;
+    match coin {
+        Coin::Quarter(state) => println!("State quarter from {state:?}!"),
+        _ => count += 1,
+    }
+
+
+    let mut count = 0;
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from {state:?}!");
+    } else {
+        count += 1;
+    }
+
+--------------------------------------------------------------------------------------------------------------------
+Project Management
+------------------
+    - Packages: A Cargo feature that lets you build, test, and share crates
+    - Crates: A tree of modules that produces a library or executable
+    - Modules and use: Let you control the organization, scope, and privacy of paths
+    - Paths: A way of naming an item, such as a struct, function, or module
+
+------
+Packages and crates
+
+Crate-> smallest amount of code the rust compiler considers at a time
+ - Source files are considered to be crates aswell
+
+ crates can contain modules
+
+ Crate types:
+ - Binary Crate: can compile to executable with main function
+ - Library Crate: don't have a main (library)
+
+ Package -> Bundle of crates
+
+ --
+ src/main.rs is the crate root of a binary crate with the same name as the package
+
+
+ ---
+ Defining Modules to Control Scope and Privacy
+
+ 
+    Start from the crate root: When compiling a crate, the compiler first looks in the crate root file 
+    (usually src/lib.rs for a library crate or src/main.rs for a binary crate) for code to compile.
+
+    Declaring modules: 
+        In the crate root file, you can declare new modules; say you declare a “garden” module with mod garden;. 
+        The compiler will look for the module’s code in these places:
+        Inline, within curly brackets that replace the semicolon following mod garden
+        In the file src/garden.rs
+        In the file src/garden/mod.rs
+
+    Declaring submodules: In any file other than the crate root, you can declare submodules. For example, you might declare mod vegetables; in src/garden.rs. The compiler will look for the submodule’s code within the directory named for the parent module in these places:
+        Inline, directly following mod vegetables, within curly brackets instead of the semicolon
+        In the file src/garden/vegetables.rs
+        In the file src/garden/vegetables/mod.rs
+
+    Paths to code in modules: 
+        Once a module is part of your crate, you can refer to code in that module from anywhere else in that same crate, 
+        as long as the privacy rules allow, using the path to the code. For example, an Asparagus type in the garden vegetables 
+        module would be found at crate::garden::vegetables::Asparagus.
+
+    Private vs. public: 
+        Code within a module is private from its parent modules by default. 
+        To make a module public, declare it with pub mod instead of mod. 
+        To make items within a public module public as well, use pub before their declarations.
+
+    The use keyword: 
+    Within a scope, the use keyword creates shortcuts to items to reduce repetition of long paths. 
+    In any scope that can refer to crate::garden::vegetables::Asparagus, 
+    you can create a shortcut with use crate::garden::vegetables::Asparagus; 
+    and from then on you only need to write Asparagus to make use of that type in the scope.
+
+backyard
+├── Cargo.lock
+├── Cargo.toml
+└── src
+    ├── garden
+    │   └── vegetables.rs
+    ├── garden.rs
+    └── main.rs
+
+use crate::garden::vegetables::Asparagus;
+
+pub mod garden;
+
+fn main() {
+    let plant = Asparagus {};
+    println!("I'm growing {plant:?}!");
+}
+
+
+Code in modules are private by default
+
+---
+A path can take two forms:
+
+    An absolute path is the full path starting from a crate root; for code from an external crate, the absolute path begins with the crate name, and for code from the current crate, it starts with the literal crate.
+    A relative path starts from the current module and uses self, super, or an identifier in the current module.
