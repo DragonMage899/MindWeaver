@@ -228,3 +228,33 @@ means you don’t have to write and debug extra code to get this control.
 --------------------------------------------------------------------------------------------------------------------
 Structs
 ---------
+    struct STRCT{
+        key: value,
+    }
+
+    let mut s1: STRCT =  {key: ActualValue} 
+//Can't have individual mutable fields 
+
+Short hand
+    fn make_monster(hp: i32, mp: i32, lvl: i32) -> Entity{
+    Entity{
+        username: String::from("Monster"),
+        hp, mp, lvl
+        }
+    }
+
+Copy:
+    let user2 = User {
+        email: String::from("another@example.com"),
+        ..user1 //fills rem fields to match user 1
+    };
+
+Tupple Structs
+
+    struct Color(i32, i32, i32);
+    struct Point(i32, i32, i32);
+
+    fn main() {
+        let black = Color(0, 0, 0);
+        let origin = Point(0, 0, 0);
+    }
