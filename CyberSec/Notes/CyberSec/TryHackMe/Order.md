@@ -11,3 +11,9 @@
 11. Cyber Defense 
 12. Attacking and Defending AWS
 13. CompTIA Pentest+
+
+Pentest:
+Into
+Pre Sec
+Jr Pen test
+Off Pen test

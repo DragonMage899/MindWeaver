@@ -30,9 +30,14 @@ mod front_of_house {
 }
 
 pub fn eat_at_restaurant() {
-    // Absolute path
+    // Absolute path, starts with crate
+    //-> start from current dir: /../..
     crate::front_of_house::hosting::add_to_waitlist();
+        // Defined in same crate as eat_at_resturant()
+        //
 
     // Relative path
+        // Path starts with name of module:
+        // -> /front_of_house/hosting/add_to_waitlist
     front_of_house::hosting::add_to_waitlist();
 }
