@@ -482,4 +482,67 @@ A path can take two forms:
     A relative path starts from the current module and uses self, super, or an identifier in the current module.
 
 
-In Rust, all items (functions, methods, structs, enums, modules, and constants) are private to parent modules by default. If you want to make an item like a function or struct private, you put it in a module.
+In Rust, all items (functions, methods, structs, enums, modules, and constants) are private to parent modules by default. 
+If you want to make an item like a function or struct private, you put it in a module.
+
+Note: Parents can't use child data but children can use ancestral data
+i.e) Inner implementation details are hidden by default
+Inner methods can be exposed with "pub" keyword
+
+super -> Begins in parent module (..)
+
+Structs in mods:
+Will become public if desendant is public (but not the fields which are done individually)
+    also need a constructor function to make object of the struct type
+
+Enums in mods:
+If public then all variants are also public
+
+Using mods:
+    After being brought into scope functions still need to be specified with parent module
+    to show that the function is not locally defined 
+    (not the case for structs and enums, only the constructor function)
+    ->Allows us to have functions with the same signature in two diff modules
+
+as Keywords: allows aliasing of modules
+    use std::fmt::Result;
+    use std::io::Result as IoResult;
+
+    fn function1() -> Result {
+        // --snip--
+    }
+
+    fn function2() -> IoResult<()> {
+        // --snip--
+    }
+
+Re-exporting:
+    mod front_of_house {
+        pub mod hosting {
+            pub fn add_to_waitlist() {}
+        }
+    }
+
+    pub use crate::front_of_house::hosting;
+
+    pub fn eat_at_restaurant() {
+        hosting::add_to_waitlist();
+    }
+
+Path nesting:
+    // --snip--
+    use std::cmp::Ordering;
+    use std::io;
+    // --snip--
+Becomes
+    // --snip--
+    use std::{cmp::Ordering, io};
+    // --snip--
+
+    use std::io;
+    use std::io::Write;
+Becomes
+    use std::io::{self, Write};
+
+Global:
+    use std::collections::*;
