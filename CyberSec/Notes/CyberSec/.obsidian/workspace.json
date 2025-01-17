@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Google cyber course/Course 1 - Foundations/4. Cyber Security Tools.md",
+                "file": "Google cyber course/Course 8 - Prepare for Work/Post.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "4. Cyber Security Tools"
+              "title": "Post"
             }
           }
         ],
@@ -168,10 +168,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Google cyber course/Course 1 - Foundations/4. Cyber Security Tools.md"
+                "file": "Google cyber course/Course 8 - Prepare for Work/Post.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 4. Cyber Security Tools"
+              "title": "Outline of Post"
             }
           }
         ],
@@ -193,38 +193,52 @@
   },
   "active": "dd65aaadd49e794f",
   "lastOpenFiles": [
+    "Pasted image 20250115181847.png",
+    "Google cyber course/Course 8 - Prepare for Work/AI.md",
+    "Google cyber course/Course 8 - Prepare for Work/Post.md",
+    "Pasted image 20250115181014.png",
+    "Pasted image 20250115180954.png",
+    "Pasted image 20250115180606.png",
+    "Pasted image 20250115180155.png",
+    "Pasted image 20250115180130.png",
+    "Pasted image 20250115180113.png",
     "Google cyber course/Personal notes.md",
-    "TryHackMe/Order.md",
-    "TryHackMe/SOC lvl1/Basics.md",
-    "TryHackMe/1. Intro to Cyber Sec/3.Careers in Cyber Sec.md",
-    "Pasted image 20241210221911.png",
-    "Pasted image 20241210221820.png",
-    "Pasted image 20241210221734.png",
-    "Pasted image 20241210221655.png",
-    "Pasted image 20241210221516.png",
-    "Pasted image 20241210221428.png",
-    "Pasted image 20241210221325.png",
-    "TryHackMe/1. Intro to Cyber Sec/2.Area's of Defensive Security.md",
-    "TryHackMe/1. Intro to Cyber Sec/1.Intro.md",
-    "Google cyber course/Course 1 - Foundations/4. Cyber Security Tools.md",
-    "Pasted image 20241126182910.png",
-    "Google cyber course/Links.md",
-    "Pasted image 20241126182219.png",
-    "Pasted image 20241126182116.png",
-    "Google cyber course/Course 1 - Foundations/3. Protection.md",
-    "Google cyber course/Course 1 - Foundations/2. Evolution of Cyber Sec.md",
-    "Google cyber course/Course 1 - Foundations/1. Intro to Cyber Sec.md",
-    "Welcome.md",
-    "Google cyber course/Untitled",
-    "Google cyber course/Course 1/CISSP Security Domains.md",
-    "TryHackMe/1. Intro to Cyber Sec",
-    "Untitled",
-    "Google cyber course/Course 1 - Foundations",
-    "TryHackMe/SOC lvl1",
-    "TryHackMe",
-    "HackTheBox/PenTesting/Basics.md",
-    "HackTheBox/PenTesting",
-    "HackTheBox",
-    "Google cyber course"
+    "Google cyber course/Course 8 - Prepare for Work/Notes.md",
+    "Pasted image 20250115174828.png",
+    "Pasted image 20250115174753.png",
+    "Pasted image 20250115174357.png",
+    "Pasted image 20250115173930.png",
+    "Google cyber course/Course 7 - Python/Notes.md",
+    "Google cyber course/Course 8 - Prepare for Work",
+    "Google cyber course/Course 6 - Detection and Response/Module 4 - IDS and SIEM.md",
+    "Google cyber course/Course 7 - Python",
+    "Google cyber course/Course 6 - Detection and Response/Module 1 - Detection and incident response.md",
+    "Google cyber course/Course 6 - Detection and Response/Module 2 - Network monitoring.md",
+    "Google cyber course/Course 6 - Detection and Response/Module 3 - Incident investigation and response.md",
+    "TryHackMe/Free Path.md",
+    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 4 - Threats to asset security.md",
+    "Google cyber course/Course 6 - Detection and Response",
+    "Google cyber course/Untitled.canvas",
+    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 3 - Vulnerabilities in system.md",
+    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 2 - Protect organisational assets.md",
+    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 1 - Into to Asset security.md",
+    "Google cyber course/Course 4 - Linux and SQL/Module 4 -  DB and SQL.md",
+    "Google cyber course/Course 5 - Assets Threats and Vuln",
+    "Google cyber course/Course 4 - Linux and SQL/Module 3 - Bash Shell.md",
+    "Google cyber course/Course 4 - Linux and SQL/Module 2 - Linux.md",
+    "Google cyber course/Course 4 - Linux and SQL/Module 1 - Intro to OS.md",
+    "Google cyber course/Course 4 - Linux and SQL",
+    "Google cyber course/Course 3 - Networks/Module 4 Security Hardening.md",
+    "Google cyber course/Course 3 - Networks/Module 3 Network Intrusions.md",
+    "Google cyber course/Course 3 - Networks/Module 2 Network Operation.md",
+    "Google cyber course/Course 3 - Networks/Module 1 Network Architecture.md",
+    "Google cyber course/Course 3 - Networks",
+    "Google cyber course/Course 2 - Risk Management/Module 4 Playbooks.md",
+    "Google cyber course/Course 2 - Risk Management/Module 3 Into to SIEM.md",
+    "Google cyber course/Course 2 - Risk Management/Module 2 Security Frameworks.md",
+    "Google cyber course/Course 2 - Risk Management",
+    "TryHackMe/Advent of Cyber",
+    "TryHackMe/1. Intro to Cyber Sec/2.Intro Offensive Sec",
+    "TryHackMe/1. Intro to Cyber Sec/1. Intro"
   ]
 }
