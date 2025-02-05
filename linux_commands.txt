@@ -1,0 +1,6 @@
+rdp:
+    xfreerdp /u:{username} /p:{password} /v:{ip} /dynamic-resolution
+
+list processes:
+	ps aux
+
