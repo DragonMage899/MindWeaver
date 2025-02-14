@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Books/Art of exploitation/0x200 Programming.md",
+                "file": "TryHackMe/Paths/Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0x200 Programming"
+              "title": "Fundamentals"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Books/Art of exploitation/0x200 Programming.md",
+                "file": "TryHackMe/Paths/Fundamentals.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 0x200 Programming"
+              "title": "Outline of Fundamentals"
             }
           }
         ],
@@ -213,31 +213,32 @@
   "lastOpenFiles": [
     "TryHackMe/CTF's/General.md",
     "TryHackMe/Commands.md",
+    "Books/Art of exploitation/0x300 Exploitation.md",
+    "Books/Art of exploitation/0x200 Programming.md",
+    "Pasted image 20250205183402.png",
+    "Pasted image 20250205183202.png",
+    "Pasted image 20250205183054.png",
+    "Pasted image 20250205182908.png",
+    "Pasted image 20250205182749.png",
+    "Pasted image 20250205181941.png",
+    "Pasted image 20250205174546.png",
+    "Pasted image 20250205174528.png",
+    "Pasted image 20250205174303.png",
+    "Pasted image 20250205174302.png",
     "TryHackMe/Paths/Fundamentals.md",
     "TryHackMe/Paths/Cyber Basics.md",
     "TryHackMe/King of the hills.md",
     "TryHackMe/Free Path.md",
-    "Pasted image 20250202161214.png",
-    "Pasted image 20250202160630.png",
     "TryHackMe/CTF's/Try Hack me/Easy/4E White rose.md",
     "TryHackMe/Order.md",
-    "Pasted image 20250129182335.png",
-    "Pasted image 20250129181432.png",
-    "Pasted image 20250129181426.png",
-    "Pasted image 20250129175441.png",
-    "Pasted image 20250129174218.png",
     "TryHackMe/CTF's/Try Hack me/Easy/3E Lookup.md",
-    "Pasted image 20250129161149.png",
     "TryHackMe/CTF's/Try Hack me/Easy",
     "TryHackMe/CTF's/Try Hack me",
-    "Books/Art of exploitation/0x200 Programming.md",
-    "Pasted image 20250129143752.png",
     "Books/Art of exploitation/Chapter 1 Introduction.md",
     "Books/Hacker How to.md",
     "TryHackMe/Advent of Cyber/Notes.md",
     "Untitled.md",
     "Untitled",
-    "Pasted image 20250128132112.png",
     "Google cyber course/Course 7 - Python/Notes.md",
     "TryHackMe/SOC lvl1/Basics.md",
     "TryHackMe/1. Intro to Cyber Sec/2.Intro Offensive Sec/1. Intro.md",
