@@ -7,19 +7,6 @@
 **To-do**
 - Structure Meeting
 
-**First Meeting Agenda**:
-- Project Overview (Figure out what we're doing)
-- GitHub usage
-- What needs to get done for the first demo
-	- Outline Beta Requirements (key features)
-	- UML
-	- Set a Deadline to have the first version of the timeline done
-- Team Roles (temporary):
-	- Front-End
-	- Back-End
-		- Daemon, Cli, API
-	- Security
-- Weekly Meetings
 
 **Side Notes**
 - Keep development conversation on discord
