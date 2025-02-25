@@ -10,6 +10,9 @@ git remote add origin https://PAT@github.com/DragonMage899/repoName.git
 git status
     -Show state of dir
 
+git config --global --add safe.directory /path
+    -Mark dir as safe
+
 git add file.txt
     -add file
 
