@@ -77,3 +77,5 @@ UI
 - pagantion to reduce data return size
 	- ![[Pasted image 20250218213102.png]]
 - assume sensible default values 
+
+Guard for syn-ack
