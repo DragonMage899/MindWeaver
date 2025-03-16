@@ -1,0 +1,1 @@
+For the practicals, you may only use the simple passthrough shader, not the calculations in the shader.

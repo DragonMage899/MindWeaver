@@ -1,0 +1,1 @@
+This section contains a series of 2D Transformation examples. The majority use an example "library" for the shapes, while the Different Rotation Example does not. These examples also use the GLM library, which you are not allowed to use for practicals. The major thing to remember is that GLM stores the matrices in column major, not row major.
