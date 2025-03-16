@@ -61,7 +61,7 @@ Normal -> Scalars
 ### Orthographic views
 - Want to construct an image plane (parr projection)
 
-nx, ny  -> max row, cols (starting a 0)
+**nx, ny  -> max row, cols (starting a 0)**
 
 For oblique parr views
 - Use d instead of w

@@ -79,3 +79,101 @@ UI
 - assume sensible default values 
 
 Guard for syn-ack
+
+
+# Functional Requirements
+
+**mpdb**
+- Allow users to create, edit and manage databases
+	- CRUD (create, read, update, delete)
+	- query
+	- validation
+	- meta data
+	- versioning 
+- Allow users to filter/sort db on fields
+- Allow users to add collaborators
+	- Specify permissions
+- Allow users to upload public and private databases
+- Allow users
+- Allow admin to manage user created databases 
+	- Monitor Usage
+	- Delete
+	- Modify
+	- Update permissions
+	- Restore
+
+**daemon**
+- Allow for external connections through sockets
+	- Auth
+- Parse and Store json files
+	- Support a pre-defined structure
+- Process commands
+	- DB management
+		- db creation and queries
+		- return data
+			- Json Format
+			- Filtered
+			- Paginated 
+	- User Management
+		- Auth
+	- Query Optimization
+- Store Logs
+
+**cli**
+- Connect to daemon
+- Perform CRUD commands
+	- Singular and batch
+- 
+
+**Web UI** (ui + api + jslib)
+- Provide responsive user interface
+	- Login
+	- Landing
+	- Dashboard
+	- Data
+	- Query
+	- Users
+- Provide rest-api
+	- Auth with api
+	- Endpoints
+		- databases
+		- query
+		- Interfaces
+
+**Other**
+- Encryption
+- Indexing and Query optimization
+- import/export
+- analytics
+
+![[Pasted image 20250226092614.png]]
+# UML
+daemon:
+- Json Parser
+- Query Processor
+- Authentication 
+- File Manager
+- Patterns
+	- mediator: Communication
+	- Singleton: only one daemon instance
+	- Observer
+		- Notify other components for updates
+		- Notify connected clients when updates happen
+	- Command
+		- CRUD commands
+
+cli:
+- Patterns
+	- command 
+	- builder (build complex query from simpler sub queries
+
+api
+- Patterns:
+	- Adapter
+		- translate between http and daemon commands
+	- Proxy to access db
+
+web
+- Patterns
+	- Model View control thingey
+	- observer, watch for db updates
