@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TryHackMe/Paths/Fundamentals.md",
+                "file": "Books/Art of exploitation/0x300 Exploitation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Fundamentals"
+              "title": "0x300 Exploitation"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TryHackMe/Paths/Fundamentals.md",
+                "file": "Books/Art of exploitation/0x300 Exploitation.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Fundamentals"
+              "title": "Outline of 0x300 Exploitation"
             }
           }
         ],
@@ -211,21 +211,24 @@
   },
   "active": "831599683e29403e",
   "lastOpenFiles": [
-    "TryHackMe/CTF's/General.md",
+    "Confrences/APISec/API sec.md",
     "TryHackMe/Commands.md",
+    "TryHackMe/CTF's/General.md",
+    "Pasted image 20250227212457.png",
+    "Pasted image 20250227212447.png",
+    "Pasted image 20250227212328.png",
+    "Pasted image 20250227212147.png",
+    "Pasted image 20250227212023.png",
+    "Pasted image 20250227211438.png",
+    "Pasted image 20250227211208.png",
+    "Pasted image 20250227205150.png",
+    "Pasted image 20250227205111.png",
+    "Pasted image 20250227205030.png",
+    "Confrences/APISec",
+    "TryHackMe/Paths/Fundamentals.md",
+    "Confrences",
     "Books/Art of exploitation/0x300 Exploitation.md",
     "Books/Art of exploitation/0x200 Programming.md",
-    "Pasted image 20250205183402.png",
-    "Pasted image 20250205183202.png",
-    "Pasted image 20250205183054.png",
-    "Pasted image 20250205182908.png",
-    "Pasted image 20250205182749.png",
-    "Pasted image 20250205181941.png",
-    "Pasted image 20250205174546.png",
-    "Pasted image 20250205174528.png",
-    "Pasted image 20250205174303.png",
-    "Pasted image 20250205174302.png",
-    "TryHackMe/Paths/Fundamentals.md",
     "TryHackMe/Paths/Cyber Basics.md",
     "TryHackMe/King of the hills.md",
     "TryHackMe/Free Path.md",
@@ -253,11 +256,7 @@
     "TryHackMe/Paths",
     "Books/Art of exploitation",
     "Books",
-    "Google cyber course/Course 8 - Prepare for Work/Post.md",
-    "Google cyber course/Course 8 - Prepare for Work/AI.md",
     "Google cyber course/Course 8 - Prepare for Work",
-    "Google cyber course/Course 7 - Python",
-    "Google cyber course/Course 6 - Detection and Response",
     "Google cyber course/Untitled.canvas"
   ]
 }
