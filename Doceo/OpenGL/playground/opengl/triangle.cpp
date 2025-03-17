@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
+#include <sstream>
+#include <vector>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "shader.h"
+
+#include "Matrix.h"
+#include "Vector.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -61,6 +67,34 @@ int main(void)
         glClearColor(0.485f, 0.592f, 0.767f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
+        float vertices[] = {
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f
+        };
+    
+    //vertex buffer object
+        unsigned int VBO;
+        glGenBuffers(1, &VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO); 
+            // VBO is of type GL_ARRAY_BUFFER
+            //Can only bind one type at a time 
+
+        //Since buffer is now bound we can load vertices into it
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+            //glBufferData -> copies user data into currently bound buffers 
+
+        //====
+        // Vertex data is now within GPU memory managed by VBO
+        // Next we want to create a vertex and fragment shader 
+        //====
+
+            //Here we compile and load the shaders. First we pass the vertex shader then the fragment shader.
+        GLuint programID = LoadShaders("vertex.glsl", "fragment.glsl");
+        std::cout << "---\nVector\n---" << std::endl;
+        Vector<3> v1;
+        v1.print();
+    
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
@@ -75,6 +109,6 @@ int main(void)
 
 void processInput(GLFWwindow *window)
 {
-if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, true);
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
 }

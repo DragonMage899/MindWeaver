@@ -61,11 +61,11 @@ int main(void)
         glClearColor(0.485f, 0.592f, 0.767f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        float vertices[] = {
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            0.0f, 0.5f, 0.0f
-        }
+        // float vertices[] = {
+        //     -0.5f, -0.5f, 0.0f,
+        //     0.5f, -0.5f, 0.0f,
+        //     0.0f, 0.5f, 0.0f
+        // };
         
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
