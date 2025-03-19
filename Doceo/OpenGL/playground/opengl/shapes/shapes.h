@@ -53,7 +53,19 @@ public:
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
         }
 
-        // Derived classes should implement the actual drawing
+    }
+
+    virtual void moveUp(){};
+    virtual void moveDown(){};
+    virtual void moveLeft(){};
+    virtual void moveRight(){};
+
+    void prt(){
+        std::cout << "<";
+        for(int i = 0; i < vertices.size(); i++){
+            std::cout <<vertices[i] << ", ";
+        }
+        std::cout << ">" << std::endl;
     }
 };
 
@@ -71,7 +83,14 @@ public:
     }
 
     void draw() override {
+        std::cout << "Drawing triangle #" << " with vertices: ";
+        for (int i = 0; i < 9; i += 3) {
+        std::cout << "(" << vertices[i] << "," << vertices[i+1] << "," << vertices[i+2] << ") ";
+    }
+        std::cout << "\n\n";
         Shape::draw(); // Call parent draw for common setup
+        std::cout << "\n\n";
+
 
         // Update vertex buffer
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -83,6 +102,36 @@ public:
 
         // Draw the triangle
         glDrawArrays(GL_TRIANGLES, 0, 3);
+    }
+
+    void moveUp() override{
+        std::cout << "Before moveUp on triangle #" << ": ";
+        std::cout << "y1=" << vertices[1] << ", y2=" << vertices[4] << ", y3=" << vertices[7] << std::endl;
+        
+        vertices[1] += 0.05;
+        vertices[4] += 0.05;
+        vertices[7] += 0.05;
+        
+        std::cout << "After moveUp on triangle #" << ": ";
+        std::cout << "y1=" << vertices[1] << ", y2=" << vertices[4] << ", y3=" << vertices[7] << std::endl;
+    }
+
+    void moveDown()override{
+        vertices[1] -= 0.01;
+        vertices[4] -= 0.01;
+        vertices[7] -= 0.01;
+    }
+
+    void moveLeft()override{
+        vertices[0] -= 0.01;
+        vertices[3] -= 0.01;
+        vertices[6] -= 0.01;
+    }
+
+    void moveRight()override{
+        vertices[0] += 0.01;
+        vertices[3] += 0.01;
+        vertices[6] += 0.01;
     }
 };
 

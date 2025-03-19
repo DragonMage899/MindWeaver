@@ -25,6 +25,12 @@ public:
     }
 
     virtual void draw() {};
+
+    virtual void moveUp(){};
+    virtual void moveDown{};
+    virtual void moveLeft{};
+    virtual void moveRight{};
+    
 };
 
 class Triangle : public Shape {

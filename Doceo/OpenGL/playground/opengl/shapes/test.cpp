@@ -142,6 +142,7 @@ int main(void){
 
         Triangle t(programID, VAO, triangle);
         t.setColor(0.224f, 0.831f, 0.494f);
+        //t.prt();
         t.draw();
 
         Square s(programID, VAO, square, 0.2);
@@ -166,6 +167,24 @@ int main(void){
 
         /* Poll for and process events */
         glfwPollEvents();
+
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        {
+            t.moveUp();
+            t.prt();
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        {
+            t.moveDown();
+        }
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        {
+            t.moveRight();
+        }
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        {
+            t.moveLeft();
+        }
     }
 
     // Clean up

@@ -145,13 +145,25 @@ int main(void){
         return -1;
     }
 
+    //Set Color
+    glUseProgram(programID);
+    float color[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+    GLint colorLoc = glGetUniformLocation(programID, "color");
+        if (colorLoc != -1) {
+            glUniform4fv(colorLoc, 1, color);
+        } else{
+            std::cout << "Could not load colors!" << std::endl;
+        }
+
+    glBindVertexArray(VAO);
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
         /* Render here */
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.485f, 0.592f, 0.767f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // Use the shader program
