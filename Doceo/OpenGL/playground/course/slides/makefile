@@ -14,8 +14,11 @@ triangle: triangle.cpp
 rectangle: rectangle.cpp
 	g++ -g $(files) rectangle.cpp shader.cpp -lglfw -pthread -lGLEW -ldl -lGL -o rectangle
 
+tut: tut.cpp
+	g++ -g $(files) tut.cpp shader.cpp -lglfw -pthread -lGLEW -ldl -lGL -o tut
+
 clean:
-	rm -f *.o main window triangle rectangle
+	rm -f *.o main window triangle rectangle tut
 
 run:
 	./main
