@@ -37,7 +37,7 @@ List Functions
 	- Put's first parameter and puts it into second parameter as first element
 	- Push function that returns a new list with added item
 	- empty lists can be inserted into other lists
-	- When second elem is atom a dotted pair is produced (useless
+	- When second elem is atom a dotted pair is produced (useless)
 
 - list?
 	- check if is a list

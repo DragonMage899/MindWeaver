@@ -88,4 +88,44 @@ Starting input: List of Three 3D cords that should form a triangle
 - Allows use to do basic processing on vertex attributes 
 
 **Primitive Assembly**
-- 
+- Takes in vertice/s from vertex shader that form a primitive and assembles all points in primitive shape given
+
+**Geometry Shader**
+- Takes in as input a collection of vertices that form a primitive and has the ability to generate other shapes by emitting new vertices to form new/other primitives
+
+**Rasterization Stage**
+- Takes in geometry shader output
+- Maps resulting primitives to corresponding pixels on screen
+- Results in fragments for fragment shader to use 
+- Clipping is run before fragment shader's run
+	- Discards fragments outside of view
+
+![[Pasted image 20250317141350.png]]
+
+**Fragment Shader**
+- Calculate color of pixel 
+- Fragment shader contains data about 3D scene
+- Uses that information to calculate final pixel color (light, shadows etc.)
+
+**Alpha test and** **Blending stage**
+- Checks depth and stencil value of the fragment
+- Uses that information to check if it's in front / behind other objects
+- Checks alpha value (opacity) and blends accordingly 
+- i.e. color calculated in fragment shader may not be actual rendered color
+
+## Triangle
+![[Pasted image 20250317142721.png]]
+![[Pasted image 20250317142754.png]]
+
+
+# Interacting with pipeline
+First define the vertex data
+![[Pasted image 20250317160640.png]]
+
+Now need to send it to the vertex shader
+- First create memory on the gpu to store vertex data
+- configure how OpenGL should interpret memory 
+- Specify how to send the data to the graphics card
+Vertex shader then vertices (only which we defined in memory)
+Can manage this memory with the Vertex Buffer Object (VBO)
+- Can store a large number of vertices in GPU memory 

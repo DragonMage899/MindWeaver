@@ -262,6 +262,39 @@ Name:   cs.up.ac.za
 Address: 137.215.98.24
 
 ---
+> set type=ns
+> one.one.one.one
+Server:         ns1.up.ac.za
+Address:        137.215.98.140#53
+
+Non-authoritative answer:
+*** Can't find one.one.one.one: No answer
+
+Authoritative answers can be found from:
+one.one.one
+        origin = dorthy.ns.cloudflare.com
+        mail addr = dns.cloudflare.com
+        serial = 2365643000
+        refresh = 10000
+        retry = 2400
+        expire = 604800
+        minimum = 1800
+>
+---
 
 Above was iterative query, we had to work.
 asking default server would immediately resolve to last line
+
+default serves can cache commonly used sites to limit iteration
+
+> server ns1.up.ac.za
+Default server: ns1.up.ac.za
+Address: 137.215.98.140#53
+> 8.8.8.8
+8.8.8.8.in-addr.arpa    name = dns.google.
+
+Authoritative answers can be found from:
+> 1.1.1.1
+1.1.1.1.in-addr.arpa    name = one.one.one.one.
+
+Authoritative answers can be found from:
