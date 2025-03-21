@@ -124,37 +124,42 @@ int main(void){
         return -1;
     }
 
+    //Shapes
+        Square carpet(programID, VAO, floor, 1.8);
+        carpet.setColor(0.44f, 0.44f, 0.44f);
+
+        Triangle t(programID, VAO, triangle);
+        t.setColor(0.224f, 0.831f, 0.494f);
+
+        Square s(programID, VAO, square, 0.2);
+        s.setColor(0.4f, 0.137f, 0.49f);
+
+        Rectangle r(programID, VAO, rect);
+        r.setColor(0.329f, 0.549f, 1.0f);
+
+
+        Circle c(programID, VAO, 0.2, 0, 0, 12);
+        c.setColor(1.0f, 1.0f, 0.0f);
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         processInput(window);
 
         /* Render here */
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.485f, 0.592f, 0.767f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // Use the shader program
         //glUseProgram(programID);
 
-        Square carpet(programID, VAO, floor, 1.8);
-        carpet.setColor(0.44f, 0.44f, 0.44f);
+
         carpet.draw();
 
-        Triangle t(programID, VAO, triangle);
-        t.setColor(0.224f, 0.831f, 0.494f);
         //t.prt();
         t.draw();
-
-        Square s(programID, VAO, square, 0.2);
-        s.setColor(0.4f, 0.137f, 0.49f);
         s.draw();
-
-        Rectangle r(programID, VAO, rect);
-        r.setColor(0.329f, 0.549f, 1.0f);
         r.draw();
-
-        Circle c(programID, VAO, 0.2, 0, 0, 10);
-        c.setColor(1.0f, 1.0f, 0.0f);
         c.draw();
         
         // glUseProgram(programID);
@@ -171,19 +176,69 @@ int main(void){
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         {
             t.moveUp();
-            t.prt();
+            s.moveUp();
+            r.moveUp();
+            c.moveUp();
         }
         if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
         {
             t.moveDown();
+            s.moveDown();
+            r.moveDown();
+            c.moveDown();
         }
         if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         {
             t.moveRight();
+            s.moveRight();
+            r.moveRight();
+            c.moveRight();
         }
         if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
         {
             t.moveLeft();
+            s.moveLeft();
+            r.moveLeft();
+            c.moveLeft();
+        }
+        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+        {
+            t.toggleWireframe();
+            s.toggleWireframe();
+            r.toggleWireframe();
+            c.toggleWireframe();
+
+            
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_MINUS) == GLFW_PRESS)
+        {
+            t.scale(0.8f);
+            s.scale(0.8f);
+            r.scale(0.8f);
+            c.scale(0.8f);
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_EQUAL) == GLFW_PRESS)
+        {
+            t.scale(1.1f);
+            s.scale(1.1f);
+            r.scale(1.1f);
+            c.scale(1.1f);
+        }
+        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        {
+            t.rotate(3.0f);
+            s.rotate(3.0f);
+            r.rotate(3.0f);
+            c.rotate(3.0f);
+        }
+        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        {
+            t.rotate(-3.0f);
+            s.rotate(-3.0f);
+            r.rotate(-3.0f);
+            c.rotate(-3.0f);
         }
     }
 

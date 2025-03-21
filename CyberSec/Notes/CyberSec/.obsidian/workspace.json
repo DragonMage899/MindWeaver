@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Books/Art of exploitation/0x300 Exploitation.md",
+                "file": "HackTheBox/Intro.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0x300 Exploitation"
+              "title": "Intro"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Books/Art of exploitation/0x300 Exploitation.md",
+                "file": "HackTheBox/Intro.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 0x300 Exploitation"
+              "title": "Outline of Intro"
             }
           }
         ],
@@ -211,6 +211,8 @@
   },
   "active": "831599683e29403e",
   "lastOpenFiles": [
+    "Books/Art of exploitation/0x300 Exploitation.md",
+    "HackTheBox/Intro.md",
     "Confrences/APISec/API sec.md",
     "TryHackMe/Commands.md",
     "TryHackMe/CTF's/General.md",
@@ -227,7 +229,6 @@
     "Confrences/APISec",
     "TryHackMe/Paths/Fundamentals.md",
     "Confrences",
-    "Books/Art of exploitation/0x300 Exploitation.md",
     "Books/Art of exploitation/0x200 Programming.md",
     "TryHackMe/Paths/Cyber Basics.md",
     "TryHackMe/King of the hills.md",

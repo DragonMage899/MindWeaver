@@ -10,6 +10,7 @@
 
 #include "Matrix.h"
 #include "Vector.h"
+#include "shapes.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
@@ -58,11 +59,37 @@ int main(void){
 
     // Vertex data for a rectagnle
     float vertices[] = {
-        0.5f, 0.5f, 0.0f, // top right
-        0.5f, -0.5f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f, // bottom left
-        -0.5f, 0.5f, 0.0f // top left
+        -0.5f, -0.5f, 0.0f,
+        0.5f, -0.5f, 0.0f,
+        0.0f, 0.5f, 0.0f,
     };
+
+
+    //testing
+    //=====================================================
+
+    float triangle[] = {
+        0.2f, 0.1f, 0.0f, 
+        0.5f, 0.4f, 0.0f,
+        0.8f, 0.1f, 0.0f
+    };
+
+    float square[] = {
+        -0.6f, -0.2f, 0.0f
+    };
+
+    float floor[] = {
+        0.9f, 0.9f, 0.0f
+    };
+
+    float rect[] = {
+        -0.8f, 0.8f, 0.0f, 
+        -0.2f, 0.8f, 0.0f, 
+        -0.2f, 0.6f, 0.0f, 
+        -0.8f, 0.6f, 0.0f 
+    };
+
+    //=====================================================
 
     unsigned int indices[] = { // note that we start from 0!
         0, 1, 3, // first triangle
@@ -78,7 +105,7 @@ int main(void){
     unsigned int VBO;
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     //Generate and bind the EBO for rectangle
     unsigned int EBO;
@@ -97,6 +124,23 @@ int main(void){
         return -1;
     }
 
+    //Shapes
+        Square carpet(programID, VAO, floor, 1.8);
+        carpet.setColor(0.44f, 0.44f, 0.44f);
+
+        Triangle t(programID, VAO, triangle);
+        t.setColor(0.224f, 0.831f, 0.494f);
+
+        Square s(programID, VAO, square, 0.2);
+        s.setColor(0.4f, 0.137f, 0.49f);
+
+        Rectangle r(programID, VAO, rect);
+        r.setColor(0.329f, 0.549f, 1.0f);
+
+
+        Circle c(programID, VAO, 0.2, 0, 0, 12);
+        c.setColor(1.0f, 1.0f, 0.0f);
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
@@ -107,28 +151,95 @@ int main(void){
         glClear(GL_COLOR_BUFFER_BIT);
 
         // Use the shader program
-        glUseProgram(programID);
+        //glUseProgram(programID);
 
-        // Bind the VAO and draw the triangle
+
+        carpet.draw();
+
+        //t.prt();
+        t.draw();
+        s.draw();
+        r.draw();
+        c.draw();
+        
+        // glUseProgram(programID);
+        // glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
         // glBindVertexArray(VAO);
-        // glDrawArrays(GL_TRIANGLES, 0, 3);
-
-            //Enable Wireframe
-        //glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-            //Diable Wireframe
-        //glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-
-        // Bind the VAO and draw the triangle
-        glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0); 
-            //glDrawElements -> want to render triangles from an index buffer
-
+        // glDrawArrays(GL_TRIANGLES, 0, 3); //use line loop to get a non filled in triangle
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
 
         /* Poll for and process events */
         glfwPollEvents();
+
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        {
+            t.moveUp();
+            s.moveUp();
+            r.moveUp();
+            c.moveUp();
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        {
+            t.moveDown();
+            s.moveDown();
+            r.moveDown();
+            c.moveDown();
+        }
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        {
+            t.moveRight();
+            s.moveRight();
+            r.moveRight();
+            c.moveRight();
+        }
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        {
+            t.moveLeft();
+            s.moveLeft();
+            r.moveLeft();
+            c.moveLeft();
+        }
+        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+        {
+            t.toggleWireframe();
+            s.toggleWireframe();
+            r.toggleWireframe();
+            c.toggleWireframe();
+
+            
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_MINUS) == GLFW_PRESS)
+        {
+            t.scale(0.8f);
+            s.scale(0.8f);
+            r.scale(0.8f);
+            c.scale(0.8f);
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_EQUAL) == GLFW_PRESS)
+        {
+            t.scale(1.1f);
+            s.scale(1.1f);
+            r.scale(1.1f);
+            c.scale(1.1f);
+        }
+        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        {
+            t.rotate(3.0f);
+            s.rotate(3.0f);
+            r.rotate(3.0f);
+            c.rotate(3.0f);
+        }
+        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        {
+            t.rotate(-3.0f);
+            s.rotate(-3.0f);
+            r.rotate(-3.0f);
+            c.rotate(-3.0f);
+        }
     }
 
     // Clean up

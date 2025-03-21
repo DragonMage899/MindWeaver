@@ -4,3 +4,5 @@ rdp:
 list processes:
 	ps aux
 
+kitty:
+    ctrl shift t //new tab

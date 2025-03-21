@@ -14,8 +14,17 @@ triangle: triangle.cpp
 rectangle: rectangle.cpp
 	g++ -g $(files) rectangle.cpp shader.cpp -lglfw -pthread -lGLEW -ldl -lGL -o rectangle
 
+draws: draws.cpp
+	g++ -g $(files) draws.cpp shader.cpp -lglfw -pthread -lGLEW -ldl -lGL -o draws
+
+shapes: shapes.cpp
+	g++ -g $(files) shapes.cpp shader.cpp -lglfw -pthread -lGLEW -ldl -lGL -o shapes
+
+test: test.cpp
+	g++ -g $(files) test.cpp shader.cpp -lglfw -pthread -lGLEW -ldl -lGL -o test
+
 clean:
-	rm -f *.o main window triangle rectangle
+	rm -f *.o main window triangle rectangle draws test
 
 run:
 	./main

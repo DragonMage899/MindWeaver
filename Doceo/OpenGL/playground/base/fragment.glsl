@@ -1,6 +1,7 @@
 #version 330 core
+in vec4 fragmentCol;
 out vec4 color;
 
-void main(){
-    color = vec4(1.0, 0.5, 0.2, 1.0); // Red color
+void main() {
+    color = fragmentCol;  // Use the color passed from the vertex shader
 }
