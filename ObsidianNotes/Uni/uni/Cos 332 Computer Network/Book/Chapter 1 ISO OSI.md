@@ -55,6 +55,76 @@ Now consider whether message sequence and data representation should form part o
 - Data representation varies between computers
 	- translation from binary to some format
 - This can cause communication issues
-- Presentation layer can translate communications to the network standard both to and from allowing the application layer to use the standard of their choosing
-- Only needs knowledge of network standard and app layer std
-- 
+- A solution is to have a network standard, where all communications only encode this standard
+	- Presentation layer can then translate communications to the network standard both to and from allowing the application layer to use the standard of their choosing
+	- Only needs knowledge of network standard and app layer std
+- This is unrealistic in modern times
+	- Many alternative coding schemes that are not compatible with ascii are looked at for historical interests only
+	- Application layer protocols deal with character encoding directly 
+		- e.g. Accept-Charset: iso-8859-2, unicode-1-1
+		- Then server would deny other charsets
+	- Having a encoding layer would've been nice but it has some drawbacks
+		- Some conversations are impossible
+			- e.g. some encoding's only have latin characters 
+- Another use for the presentation use could be date formatting 
+- But in general the application later takes over this making the line of when to translate blurry
+- Information Represenation
+	- XML
+	- HTML
+	- MIME (Multipurpose Internet Mail Extensions)
+	- RFC 822 (std for arpa)
+- In practise presentation layer is included in application layer
+
+## Layer 5 - Session Layer
+- Provides session-oriented services
+- Helps to establish maintain and terminate a session
+- Dialogue control (who can say what when)
+- Allows for parallel connections\
+- Stores Auth
+- In Actual usage the session layer refers to a series of steps taken by some application layer protocol 
+
+## **Layer 4 - Transport Layer**
+- Pipeline connecting layers 7, 6, and 5 to it's corresponding peer on the other network
+- **Enables Process to Process Communication**
+- Processes can communicate over the network without having to worry about lower layer details 
+- Can also deal with reliable transmission and throttling 
+
+##  Layer 3 - The Network Layer
+- Routing 
+- A client is typically never directly to a server, series of connections involved
+- YOU -> ISP NETWORK -> SERVER ISP NETWORK -> SERVER
+- Many ways to accomplish routing
+	- pathfinder packet (expensive)
+	- routing tables (in your router)
+		- tells all non local network stuff to be forwarded to ISP router
+		- ISP router points to client routers and Internet exchange router 
+- router: computer connected to more than one network
+	- can transmit messages between networks
+
+## Layer 2 - Data Link Layer
+- data delineation problem - when does a message end
+	- end code could simply be part of a message by chance
+- Nodes that are broadcasting may interfere with each other 
+- Transmission errors occur and may need to be detected
+	- Also verifies integrity of above data
+- The data link layer is responsible for:
+	- Adding some error checking code
+	- Add Headers and Trailers
+	- Hands message to physical layer
+- Ethernet
+
+# Layer 1 - Physical Layer
+- Physical connection between nodes
+- Medium type, Bit representation, type of plugs etcc
+- Network topology considered at physical layer
+- Signal, Environmental inteference
+
+
+# Units of Data (Packets)
+- Data consists of a header and payload (could be more)
+![[Pasted image 20250323180929.png]]
+
+# Standards
+![[Pasted image 20250323181046.png]]
+![[Pasted image 20250323181053.png]]
+![[Pasted image 20250323181102.png]]

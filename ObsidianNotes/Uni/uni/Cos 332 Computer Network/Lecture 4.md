@@ -1,4 +1,4 @@
-Napsta
+Napster
 - p2p
 
 **smtp**

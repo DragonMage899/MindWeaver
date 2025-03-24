@@ -6,7 +6,7 @@ scheme list functions
 List Functions
 - quote:
 	- In scheme we first eval all the parameters
-		- Atoms evaluate to themself
+		- Atoms evaluate to themselves
 		- List form parameters need to be evaluated as a function 
 			- Scheme interpreter:
 				- List will be interpreted as a function by default
@@ -34,7 +34,7 @@ List Functions
 	- cdr can be used repeatedly untill an empty list is reached (end of list)
 
 - cons:
-	- Put's first parameter and puts it into second parameter as first element
+	- Put's first parameter into second parameter as first element
 	- Push function that returns a new list with added item
 	- empty lists can be inserted into other lists
 	- When second elem is atom a dotted pair is produced (useless)
@@ -54,6 +54,16 @@ List Functions
 - let
 	- binds values/expressions
 	- to names
+	- (let ((name1 var1) (name2 var)) logic)
 
 - member (not provided, need to be self implemented)
-	- 
+
+
+**Example Functions**
+![[Pasted image 20250324124706.png]]
+
+![[Pasted image 20250324124713.png]]
+
+![[Pasted image 20250324124724.png]]
+
+![[Pasted image 20250324124734.png]]

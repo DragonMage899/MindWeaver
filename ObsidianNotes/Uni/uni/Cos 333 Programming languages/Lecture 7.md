@@ -2,6 +2,8 @@
 
 - Info from earlier chapters not covered in chapter is in slides
 
+**Recurion**
+- 
 
 **Functional Programming**
 - Focus on Scheme (Not Haskell, lisp as covered in ch2)
@@ -18,7 +20,7 @@ In functional programming
 - Apply functions functions to parameters 
 - Returns a value (compulsory)
 
-Functional side effects
+## **Functional side effects**
 - When a function changes a parameter or global value
 - i.e. function modifies variable outside of its scope
 - Issue: 
@@ -27,11 +29,16 @@ Functional side effects
 	- Is ambiguous (when a is modified)
 - Solution:
 	- Disallow functional side effects
+		- No two-way parameters in functions (functions not allowed to modify passed in stuff)
+		- No non-local references in functions (can't reference global variables)
+		- Leads to inflexibility of one-way parameters
 	- Fixed evaluation order (left to tight)
+		- can limit compiler optimisation
+	
 
-Referential Transparency
-- Two equivalent expressions
-- One cause of referential breakdown
+## **Referential Transparency**
+- Two equivalent expressions are substitutable 
+- One cause of referential breakdown is functional side effects
 ![[Pasted image 20250304085401.png]]
 - No side effects
 	- Can't modify value and global
@@ -45,15 +52,17 @@ Referential Transparency
 		- static (c++)
 		- constant 
 
-Functional programming languages features
+## **Functional programming languages features**
 - No variables
 	- Thus side effects aren't possible
 	- Can't have state thus no breakdown if referential transparency
-- Mimics functional programming language
+- Mimics mathematical functions
 - No memory/variable management
 	- memory safe
+![[Pasted image 20250324122406.png]]
 
-**Scheme**
+## **Scheme**
+- Dialect of lisp
 - Data objects
 	- Atoms
 		- Symbols (Not variables, represent some abstract concept where meaning is determined by programmer)
@@ -77,3 +86,10 @@ return depends on input and nothing else
 
 ![[Pasted image 20250304092007.png]]
 ![[Pasted image 20250304092024.png]]
+
+![[Pasted image 20250324123914.png]]
+if 
+else if
+...
+else
+

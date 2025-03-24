@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HackTheBox/Intro.md",
+                "file": "TryHackMe/Commands.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Intro"
+              "title": "Commands"
             }
           }
         ],
@@ -183,13 +183,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HackTheBox/Intro.md",
+                "file": "TryHackMe/Commands.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Intro"
+              "title": "Outline of Commands"
             }
           }
         ],
@@ -211,8 +211,8 @@
   },
   "active": "831599683e29403e",
   "lastOpenFiles": [
-    "Books/Art of exploitation/0x300 Exploitation.md",
     "HackTheBox/Intro.md",
+    "Books/Art of exploitation/0x300 Exploitation.md",
     "Confrences/APISec/API sec.md",
     "TryHackMe/Commands.md",
     "TryHackMe/CTF's/General.md",

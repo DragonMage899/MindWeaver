@@ -7,6 +7,14 @@ Overview
 - General approach implementation
 - Programming environments and their impact on software production
 
+![[Pasted image 20250323114549.png]]
+![[Pasted image 20250323114558.png]]
+![[Pasted image 20250323114608.png]]
+![[Pasted image 20250323114618.png]]
+![[Pasted image 20250323114624.png]]
+![[Pasted image 20250323114636.png]]
+![[Pasted image 20250323114644.png]]
+
 
 # Language evaluation criteria
 ![[Pasted image 20250223105428.png]]
@@ -26,6 +34,15 @@ Ease of maintenance dependent on readability of code
 - Combining a relatively small set of primitive constructs in a small number of ways to build control and data structures of the language
 - Every primitive operation combination is legal and meaningful
 - e.g.) pointers are able to point to any data type / structure
+- Changing one thing does not affect the rest of the system
+- Language features are independent and can be combined without restriction
+	- Full: Lisp, Algol, Scala
+	- Semi: Java, Python
+	- Non: C/C++
+	https://www.baeldung.com/cs/orthogonality-cs-programming-languages-software-databases
+	- More orth = Easier to learn, many ways to do one thing, more user power
+	- Complex to compile / int
+	
 
 **Data Types**
 - defining data types and data structures
@@ -60,7 +77,7 @@ Ease of maintenance dependent on readability of code
 
 **Portability**
 - Ease with which a system can moved between implementations
-- Influenced by degree of standardization 
+- Influenced by degree of standardisation 
 
 **Generality****
 - The applicability to a wide range of applications
