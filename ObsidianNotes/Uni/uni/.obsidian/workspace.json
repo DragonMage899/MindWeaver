@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning/Test week.md",
+                "file": "Cos 314 Artificial Intelligence/Ch 1 & 2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Test week"
+              "title": "Ch 1 & 2"
             }
           },
           {
@@ -27,15 +27,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 332 Computer Network/Chat/ST1.md",
+                "file": "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ST1"
+              "title": "Ch Metaheuristics"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Planning/Test week.md",
+                "file": "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Test week"
+              "title": "Outline of Ch Metaheuristics"
             }
           }
         ],
@@ -182,46 +183,46 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b848df831b74e92c",
+  "active": "2263583ad69898f0",
   "lastOpenFiles": [
+    "Pasted image 20250325180337.png",
+    "Pasted image 20250325180308.png",
+    "Pasted image 20250325180241.png",
+    "Pasted image 20250325180031.png",
+    "Pasted image 20250325180003.png",
+    "Pasted image 20250325175931.png",
+    "Pasted image 20250325175929.png",
+    "Pasted image 20250325175928.png",
+    "Pasted image 20250325175509.png",
+    "Pasted image 20250325175048.png",
+    "Pasted image 20250325175026.png",
+    "Cos 314 Artificial Intelligence/Ch 1 & 2.md",
+    "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
+    "Cos 314 Artificial Intelligence/Ch 4.md",
+    "Planning/Test week.md",
+    "Cos 314 Artificial Intelligence/Lecture 2.md",
+    "Cos 314 Artificial Intelligence/Lecture 3.md",
+    "Cos 314 Artificial Intelligence/Book/Chapter 1.md",
     "Cos 332 Computer Network/Chat/ST1.md",
+    "Cos 314 Artificial Intelligence/Lecture 8.md",
+    "Cos 314 Artificial Intelligence/Lecture 7.md",
+    "Cos 333 Programming languages/Book/Chapter 1.md",
+    "Cos 333 Programming languages/chat/Chapter 1.md",
+    "Cos 333 Programming languages/chat/Chapter 2.md",
     "Cos 332 Computer Network/Chat/Chapter 2.md",
     "Cos 332 Computer Network/Book/Chapter 2 Application Layer (User Oriented Protocol).md",
-    "Cos 333 Programming languages/chat/Chapter 1.md",
-    "Planning/Test week.md",
     "Cos 332 Computer Network/Chat/Chapter 3.md",
     "Cos 332 Computer Network/Chat",
     "Planning/Test Dates.md",
     "Cos 333 Programming languages/Book/Chapter 2 Evolution.md",
     "Cos 333 Programming languages/Book/Chapter 15 Functional programming.md",
-    "Cos 333 Programming languages/chat/Chapter 2.md",
     "Cos 333 Programming languages/Lecture 9.md",
     "Cos 333 Programming languages/chat",
     "Cos 333 Programming languages/Book/ST1.md",
-    "Cos 333 Programming languages/Book/Chapter 1.md",
     "Cos 333 Programming languages/Lecture 8.md",
-    "Pasted image 20250324125502.png",
-    "Pasted image 20250324125501.png",
-    "Pasted image 20250324125453.png",
-    "Pasted image 20250324125435.png",
-    "Pasted image 20250324125423.png",
-    "Pasted image 20250324125247.png",
-    "Pasted image 20250324124734.png",
-    "Pasted image 20250324124724.png",
-    "Pasted image 20250324124713.png",
-    "Pasted image 20250324124706.png",
     "Cos 333 Programming languages/Lecture 7.md",
     "Cos 333 Programming languages/Lecture 5.md",
     "Cos 333 Programming languages/Lecture 3.md",
-    "Cos 314 Artificial Intelligence/Ch 4.md",
-    "Cos 333 Programming languages/Pracs 2 notes.md",
-    "Cos 333 Programming languages/Prac1.md",
-    "Cos 332 Computer Network/Book/Chapter 1 ISO OSI.md",
-    "Cos 332 Computer Network/Lecture 4.md",
-    "Cos 332 Computer Network/Lecture 3.md",
-    "Cos 332 Computer Network/Lecture 2.md",
-    "Cos 314 Artificial Intelligence/Assignment 1 notes.md",
-    "Cos 314 Artificial Intelligence/Tut 1.md",
     "Cos 344 Graphics/LearnOpenGL"
   ]
 }
