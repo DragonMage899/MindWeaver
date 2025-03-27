@@ -28,14 +28,14 @@
 
 ### **DNS Records**
 
-|Record Type|Purpose|Example|
-|---|---|---|
-|**A**|IPv4 address|`example.com A 192.0.2.1`|
-|**AAAA**|IPv6 address|`example.com AAAA 2001:db8::1`|
-|**NS**|Name server|`example.com NS ns1.example.com`|
-|**MX**|Mail server|`example.com MX 10 mail.example.com`|
-|**CNAME**|Alias|`www.example.com CNAME example.com`|
-|**PTR**|Reverse DNS (IP → name)|`1.2.0.192.in-addr.arpa PTR example.com`|
+| Record Type | Purpose                 | Example                                  |
+| ----------- | ----------------------- | ---------------------------------------- |
+| **A**       | IPv4 address            | `example.com A 192.0.2.1`                |
+| **AAAA**    | IPv6 address            | `example.com AAAA 2001:db8::1`           |
+| **NS**      | Name server             | `example.com NS ns1.example.com`         |
+| **MX**      | Mail server             | `example.com MX 10 mail.example.com`     |
+| **CNAME**   | Alias                   | `www.example.com CNAME example.com`      |
+| **PTR**     | Reverse DNS (IP → name) | `1.2.0.192.in-addr.arpa PTR example.com` |
 
 ### **Manual Interaction with `nslookup`**
 
