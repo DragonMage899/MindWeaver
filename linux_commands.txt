@@ -6,3 +6,16 @@ list processes:
 
 kitty:
     ctrl shift t //new tab
+
+====
+-Arch-
+Update aur and arch packages:
+    yay
+
+Syu update conflict
+    Remove outdated:    
+    sudo pacman -Rdd outdated_package1
+
+    Remove orphans
+    pacman -Qo /usr/lib/pkgconfig/package-*.pc    
+

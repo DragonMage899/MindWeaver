@@ -134,7 +134,24 @@ The discussion of layer 7 requires a discussion of two topics that you are very 
 
 The videos are the online lectures about [Diskstra's algorithm](https://www.youtube.com/watch?v=3BRp-n8fHEk) and the [Bellman-Ford algorithm](https://www.youtube.com/watch?v=Kxaz-Q15_aY) on my Youtube channel at [https://www.youtube.com/c/NetworkProf](https://www.youtube.com/c/NetworkProf).  Note that the videos talk about the same algorithms that you have encountered before.  However, the depiction of intermediate results may or may not be the same as you have been taught.  Double check that you are able to apply the algorithms using the same manner as shown in the videos.
 # COS 344
-later
+Please take note of the following details regarding Semester Test 1:
+
+- Date: 05/04/2025
+- Time: 12h30
+- Duration: 1.5 hours
+- Venue: IT 2-26
+- Scope:
+- Chapter 1
+- Chapter 3
+- Chapter 4
+- Chapter 5
+- Chapter 7
+- Chapter 17
+- Chapters 2 and 6 are assumed knowledge.
+- You are allowed to bring in any non-electronic notes/textbooks/materials as well as a calculator.
+
+The semester test will focus more on theory and its application/reasoning. While a portion of the test will contain mathematics, but it will not be to the same degree as the class tests.
+
 
 
 

@@ -1,0 +1,13 @@
+### Exploiting race conditions:
+
+Presumably, all events involving more or less the same amount of data should be subject to the same amount of internal latency. The variable factors therefore are the network latency and network jitter.
+
+At this point, it is important to understand a key (though by no means only) difference between HTTP/1.1 and HTTP/2.
+
+By default, HTTP/1.1 is a cleartext protocol which sends TCP packets over a single TCP connection in series. The server receiving these packets then processes the received packets sequentially in a blocking fashion. This already violates the condition for requests needing to be processed simultaneously in order to trigger a race condition. To get around this, a separate TCP connection can be established for each request that's sent. While this avoids the issue of sequential processing, it introduces the complication that each TCP connection is subject to its own latency and jitter. This makes it challenging to align the race windows of different events.
+
+HTTP/2 is a binary protocol that is capable of multiplexing, though data transmission still relies on the use of TCP packets. This means that multiple requests can be sent in a single TCP packet, which gets unpacked server-side. By sending multiple requests as a single packet, all requests are subject to identical network latency and jitter. Alignment of the race windows is therefore significantly easier.
+
+It might seem at this point as if HTTP/2 makes race conditions extremely viable (which is true) and that it's best to not really bother with HTTP/1.1. While it is much harder to reliably get HTTP/1.1 to work, there is a trick which can make it viable, called **last-byte synchronization**. This is where multiple requests are sent over concurrent connections, but the last byte of each request in the group is withheld. After a short delay, these last bytes are sent down each connection simultaneously. Since the server will not start processing before an entire request was received, this ensures that processing on all requests will start at the same. While this makes attacks over HTTP/1.1 much more viable, they are still less reliable than HTTP/2.
+
+To do this, copies of multiple requests triggering the same event will need to be grouped together under Burp Suite's Repeater tab. The group will then have to be sent using the _Send group in parallel (last-byte sync)_ method.

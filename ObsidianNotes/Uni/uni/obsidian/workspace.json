@@ -1,0 +1,227 @@
+{
+  "main": {
+    "id": "e359681a8b1eb2a3",
+    "type": "split",
+    "children": [
+      {
+        "id": "22254e55a70ea541",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b848df831b74e92c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cos 314 Artificial Intelligence/Ch 1 & 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ch 1 & 2"
+            }
+          },
+          {
+            "id": "2263583ad69898f0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cos 332 Computer Network/Book/extra.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "extra"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "60269bd9624e4850",
+    "type": "split",
+    "children": [
+      {
+        "id": "05fafe15445b736f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "71a9d6d6dc8b19f5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "b3e133af602c7ed1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8b0a9b1faf953c18",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cd0373cd7c35742e",
+    "type": "split",
+    "children": [
+      {
+        "id": "66abd90bd1c0ffa0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8e536394ff9e4e64",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Cos 314 Artificial Intelligence/Ch 4.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Ch 4"
+            }
+          },
+          {
+            "id": "44ccdccb3a552221",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Cos 344 Graphics/LearnOpenGL/Chapter 1.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Chapter 1"
+            }
+          },
+          {
+            "id": "a813c22337729e20",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "102981a53d8439ee",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Cos 332 Computer Network/Book/extra.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of extra"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "2263583ad69898f0",
+  "lastOpenFiles": [
+    "Cos 332 Computer Network/Chat/ST1.md",
+    "Cos 332 Computer Network/Chat/2024 st1.md",
+    "Cos 332 Computer Network/Chat/chat.md",
+    "Cos 332 Computer Network/Book/extra.md",
+    "Pasted image 20250327044458.png",
+    "Cos 332 Computer Network/Book/Chapter 3 App Layer Network Oriented.md",
+    "Cos 332 Computer Network/Book/Chapter 2 Application Layer (User Oriented Protocol).md",
+    "Pasted image 20250327044306.png",
+    "Cos 332 Computer Network/Chat/Chapter 2.md",
+    "Cos 332 Computer Network/Chat/Chapter 3.md",
+    "Pasted image 20250327042900.png",
+    "Pasted image 20250327041924.png",
+    "Cos 332 Computer Network/Lecture 2.md",
+    "Pasted image 20250327035734.png",
+    "Pasted image 20250327035705.png",
+    "Pasted image 20250327035655.png",
+    "Cos 332 Computer Network/Book/Chapter 1 ISO OSI.md",
+    "Pasted image 20250327033329.png",
+    "Pasted image 20250327031236.png",
+    "Pasted image 20250326205505.png",
+    "Cos 314 Artificial Intelligence/ST1 notes.md",
+    "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
+    "Cos 314 Artificial Intelligence/Ch 1 & 2.md",
+    "Cos 314 Artificial Intelligence/Ch 4.md",
+    "Planning/Test week.md",
+    "Cos 314 Artificial Intelligence/Lecture 2.md",
+    "Cos 314 Artificial Intelligence/Lecture 3.md",
+    "Cos 314 Artificial Intelligence/Book/Chapter 1.md",
+    "Cos 314 Artificial Intelligence/Lecture 8.md",
+    "Cos 314 Artificial Intelligence/Lecture 7.md",
+    "Cos 333 Programming languages/Book/Chapter 1.md",
+    "Cos 333 Programming languages/chat/Chapter 1.md",
+    "Cos 333 Programming languages/chat/Chapter 2.md",
+    "Cos 332 Computer Network/Chat",
+    "Planning/Test Dates.md",
+    "Cos 333 Programming languages/Book/Chapter 2 Evolution.md",
+    "Cos 333 Programming languages/chat",
+    "Cos 344 Graphics/LearnOpenGL"
+  ]
+}

@@ -50,6 +50,9 @@ ow would query 10.1.1.4 for the location of merlin
 Web based applications typically send DNS requests to resolve names.
 
 ### nslookup
+![[Pasted image 20250327035705.png]]
+![[Pasted image 20250327035734.png]]
+
 nslookup can also be used for cli querying
 ![[Pasted image 20250326194649.png]]
 This is a recursive resolution
@@ -168,3 +171,17 @@ redundant network access
 ## OSPF
 ![[Pasted image 20250326205410.png]]
 ![[Pasted image 20250326205505.png]]
+
+# Djikstra 
+Determines routes at layer 3'
+![[Pasted image 20250327031236.png]]
+
+# Bellman ford
+Results in shortest path from from start to every other node.
+works with negative weights (djikstra does not)
+fails with negative edges. 
+
+Works by iterating n - 1 times
+n is the num of nodes,
+n-1 is the num of edges (if > there's a cycle)
+![[Pasted image 20250327033329.png]]

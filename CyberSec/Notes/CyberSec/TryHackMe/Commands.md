@@ -18,7 +18,7 @@ Then
 ## Gobuster:
 - Directories
 ```
-gobuster dir -u http://ip:port -w /home/Dragon/Code/wordlists/fuzz_php_special.txt
+gobuster dir -u http://ip:port -w /home/Dragon/Code/wordlists/fuzz_php_special.txt -t 100 --timeout 60s
 ```
 ```
 gobuster dir -u http://ip:port -w /home/Dragon/Code/wordlists/robots.txt
