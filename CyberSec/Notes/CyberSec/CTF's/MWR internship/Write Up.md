@@ -5,10 +5,10 @@ Intro Section
 Name
 Description
 
-## Task 2
+## Task 2 Scanning
 ![[Pasted image 20250415192920.png]]
 
-## Task 3
+## Task 3 Steganography
 Challenge category: steganography
 
 Dropping into the challenge page we're greeted with a cool looking web page:
@@ -28,7 +28,7 @@ Let's examine each file with exiftool
 And hidden in metadata of mtEverest3.jpg we find a kill switch!
 We're one step closer to stopping ares
 
-## Task 4
+## Task 4 Crypto
 The first two encryption require a simple decode in cyber chef
 ![[Pasted image 20250427232720.png]]
 ![[Pasted image 20250427232744.png]]
@@ -38,7 +38,7 @@ First inspection of the the third cipher smells of base64, let's see where that 
 Well that's clearly a flag format but it seems to have been encrypted. 
 ![[Pasted image 20250427233005.png]]
 Applying Both decryption reveals another flag with a hint that could be useful later on, it appears that ares has a kill switch somewhere. 
-## Task 5
+## Task 5 Dir brute force
 Entering the challenge page we see the following:
 ![[Pasted image 20250427233646.png]]
 It seems we need to dive into a rabbit hole to solve this challenge. Let's begin doing a directory scan of with gobuster on http://10.10.34.10/TASK5/Challenge/
@@ -122,7 +122,7 @@ and it's a code 200. It seems like someone left hidden file in the admin vault
 
 ![[Pasted image 20250428005204.png]]
 We have another killswitch flag!
-## Task 6
+## Task 6 Hash cracking
 Navigating to challenge we greeted with a message from the architect
 ![[Pasted image 20250428005503.png]]
 Along with the word Ares in mandarin.
@@ -146,7 +146,7 @@ And we have a hit
 ![[Pasted image 20250428011544.png]]
 Boom, another flag!
 MWR{Hacking-And-Cracking-Your-Way}
-## Task 7
+## Task 7 SQL
 Challenge, We have a log in form!
 Let's hope the developers weren't too trusting of user input.
 It. Following the walk through 
@@ -160,8 +160,8 @@ Password: a
 
 Reveals the flag, sweet and easy!
 MWR{No-Injections-Please}
-## Task 8
-Right looks like we have a union injection challenge/ 
+## Task 8 Union SQL
+Right looks like we have a union injection challenge!
 ![[Pasted image 20250428012936.png]]
 We have a drop down menu
 ![[Pasted image 20250428013116.png]]
@@ -171,15 +171,107 @@ With a suspicious quoted value
 
 Selecting a value fills the table, we also notice that we have a php file with a query string. Let's move over to burp suit and start playing around 
 
-## Task 9
+![[Pasted image 20250428104552.png]]
+Seems like using + in the query string to represent a space, we know have enough to start manipulating the query
 
-## Task 10
+First step is figure out how many columns are being returned by the projection
+![[Pasted image 20250428105633.png]]
+![[Pasted image 20250428105820.png]]
+We have an answer the projection is returning 5 columns
 
-## Task 11
+Not let's try a union Select
+![[Pasted image 20250428110029.png]]
+![[Pasted image 20250428110037.png]]
+Perfect we can use the union select the populate the table!
 
-## Task 12
+Let's try to get the sql engine, the write up mentions sql lite so that would be a good starting point.
 
-## Task 13
+![[Pasted image 20250428110406.png]]
+The first field doesn't seem to help us, let's try the next one
+
+![[Pasted image 20250428110450.png]]
+And there we go!
+
+Not let's grab some information from the sqlite_master table
+![[Pasted image 20250428110734.png]]
+![[Pasted image 20250428110745.png]]
+
+We have a fl4gged_events table, not only does it have the word it's also obscured, we're onto something!
+
+Let's see what this table holds
+![[Pasted image 20250428111113.png]]
+We'll set id=1 and extract the timestamp and activity columns.
+![[Pasted image 20250428111153.png]]
+Nothing here, let's continue iterating until we run of rows
+
+![[Pasted image 20250428111223.png]]
+![[Pasted image 20250428111238.png]]
+![[Pasted image 20250428111324.png]]
+And there we have it. Ares will be going down soon
+
+
+## Task 9 Dir Traversal
+The architect has once again provided assistance, it seems he's left us a way to retrieve files we shouldn't have access to
+![[Pasted image 20250428111450.png]]
+First let's try to grab the index.html of the current page to make sure we understand how it works
+![[Pasted image 20250428112926.png]]
+![[Pasted image 20250428112952.png]]
+Looks like we're grabbing from the cores folder in the current directory.
+Let's try moving up one directory
+"?page=../index.html"
+![[Pasted image 20250428113054.png]]
+Seems it has the ability to detect directory escapes.
+Let's try the exploit we discovered in Task 5
+`?page=.%2e/index.html`
+![[Pasted image 20250428113301.png]]
+Looks like that's been secured
+
+Time to consult port swigger. 
+Let's give this a try
+https://portswigger.net/web-security/file-path-traversal
+![[Pasted image 20250428112447.png]]
+
+![[Pasted image 20250428113402.png]]
+There we go!
+To make sure we're on the right let's move up more directories until we find the inde.html for the home page
+`?page=....//....//....//index.html`
+![[Pasted image 20250428113607.png]]
+
+Perfect! we can now start looking for the /opt/killswitch.txt
+![[Pasted image 20250428113650.png]]
+There we go!
+`?page=....//....//....//....//....//....//opt/killswitch.txt`
+MWR{Reading-The-Mountain}
+
+
+## Task 10 Auth Bypass
+![[Pasted image 20250428114141.png]]
+Looks like we have a link to an admin portal which 
+
+Trying to access admin.php we see
+![[Pasted image 20250428114217.png]]
+
+Let's inspect the request data and see what we can discover:
+![[Pasted image 20250428114252.png]]
+Interesting we're setting value for admin in the cookie field
+"admin=ZmFsc2U%3D"
+That smells of base64 encoding., off to cyber chef 
+
+![[Pasted image 20250428114427.png]]
+The cookie seems to be encoding a boolean value, let's replace it with the base64 value for true and see if that works
+![[Pasted image 20250428114532.png]]
+Replacing the admin cookie with `dHJ1ZQ==`
+![[Pasted image 20250428114616.png]]
+Turns us into an admin!
+Another kill switch flag, we're one step close to shutting down ares
+
+
+
+## Task 11 Logic flaws
+
+## Task 12 File upload
+
+## Task 13 Race conditions
 
 ## Root
 
