@@ -6,6 +6,7 @@
       {
         "id": "b4dc559782d4bb18",
         "type": "tabs",
+        "dimension": 44.679186228482,
         "children": [
           {
             "id": "831599683e29403e",
@@ -13,16 +14,38 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CTF's/MWR internship/Task 2 Scanning.md",
+                "file": "CTF's/MWR internship/Task 3 Steganography.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Task 2 Scanning"
+              "title": "Task 3 Steganography"
             }
           },
           {
             "id": "358f2c2b9bec328f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CTF's/MWR internship/Task 8 Union SQL injection.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Task 8 Union SQL injection"
+            }
+          }
+        ],
+        "currentTab": 1
+      },
+      {
+        "id": "cf4c9c749cc9be06",
+        "type": "tabs",
+        "dimension": 55.320813771518,
+        "children": [
+          {
+            "id": "c3204f14f09a040c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -34,23 +57,8 @@
               "icon": "lucide-file",
               "title": "Write Up"
             }
-          },
-          {
-            "id": "c3204f14f09a040c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CTF's/MWR internship/Task 10 Authorisation bypass.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Task 10 Authorisation bypass"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -107,7 +115,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 297.5
   },
   "right": {
     "id": "a5fbab4e961dcb21",
@@ -169,13 +177,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CTF's/MWR internship/Task 10 Authorisation bypass.md",
+                "file": "CTF's/MWR internship/Write Up.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Task 10 Authorisation bypass"
+              "title": "Outline of Write Up"
             }
           }
         ],
@@ -197,10 +205,34 @@
   },
   "active": "c3204f14f09a040c",
   "lastOpenFiles": [
-    "CTF's/MWR internship/Task 11 Logic flaws.md",
+    "Pasted image 20250428013237.png",
+    "Pasted image 20250428013116.png",
+    "CTF's/MWR internship/Task 8 Union SQL injection.md",
+    "CTF's/MWR internship/Write Up.md",
+    "Pasted image 20250428012936.png",
     "CTF's/MWR internship/Task 7 SQL injection.md",
+    "Pasted image 20250428012630.png",
+    "CTF's/MWR internship/Task 14 shell.md",
+    "CTF's/MWR internship/Task 13 Race conditions.md",
+    "CTF's/MWR internship/Task 12 Arbitrary File uploads.md",
+    "CTF's/MWR internship/Task 11 Logic flaws.md",
+    "CTF's/MWR internship/Task 10 Authorisation bypass.md",
     "CTF's/MWR internship/Task 9 Directory Traversal.md",
+    "CTF's/MWR internship/Task 6 Hash Cracking.md",
+    "Pasted image 20250428011544.png",
+    "Pasted image 20250428011448.png",
+    "CTF's/MWR internship/task6/ziphash.txt",
+    "Pasted image 20250428010915.png",
+    "Pasted image 20250428010727.png",
+    "Pasted image 20250428005812.png",
+    "CTF's/MWR internship/task6/Crack-Me.zip",
+    "CTF's/MWR internship/task6",
+    "Pasted image 20250428005503.png",
     "CTF's/MWR internship/Task 5 Directory Brute Forcing.md",
+    "Pasted image 20250428005204.png",
+    "CTF's/MWR internship/Task 4 Cryprography.md",
+    "CTF's/MWR internship/Task 3 Steganography.md",
+    "CTF's/MWR internship/Task 2 Scanning.md",
     "TryHackMe/Paths/Fundamentals/Network Services/NFS.md",
     "TryHackMe/King of the hills.md",
     "TryHackMe/Order.md",
@@ -212,37 +244,13 @@
     "TryHackMe/Paths/Fundamentals/Network Services/SMB.md",
     "TryHackMe/Paths/Fundamentals/Linux.md",
     "TryHackMe/Commands.md",
-    "TryHackMe/Paths/Fundamentals/Intro to Networking.md",
     "TryHackMe/Paths/Fundamentals/Network Services",
-    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 3 - Vulnerabilities in system.md",
     "TryHackMe/Paths/Fundamentals",
-    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 2 - Protect organisational assets.md",
-    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 1 - Into to Asset security.md",
-    "CTF's/Commands.md",
-    "CTF's/MWR internship/Task 2 Scanning.md",
-    "CTF's/MWR internship/Notes.md",
-    "CTF's/MWR internship/Write Up.md",
-    "Google cyber course/Course 5 - Assets Threats and Vuln/Module 4 - Threats to asset security.md",
-    "Google cyber course/Course 8 - Prepare for Work/Notes.md",
-    "Google cyber course/Course 8 - Prepare for Work/AI.md",
     "CTF's/MWR internship/jpg.php",
-    "Pasted image 20250417234104.png",
-    "Pasted image 20250417232409.png",
-    "Pasted image 20250417232357.png",
-    "Pasted image 20250417231515.png",
-    "Pasted image 20250417231500.png",
-    "Pasted image 20250417220330.png",
-    "Pasted image 20250417220327.png",
-    "Pasted image 20250417220154.png",
-    "Pasted image 20250417215659.png",
     "CTF's/MWR internship/jpg2.php",
     "CTF's/MWR internship/rev.php",
-    "CTF's/MWR internship/rev2.jpg",
     "CTF's/MWR internship/ziphash.txt",
     "CTF's/MWR internship/Crack-Me.zip",
-    "CTF's/MWR internship/wd.txt",
-    "CTF's/MWR internship/Task2/mtEverest4.jpg.part",
-    "CTF's/MWR internship/Task2/mtEverest3.jpg.part",
     "Untitled.canvas",
     "Google cyber course/Untitled.canvas"
   ]
