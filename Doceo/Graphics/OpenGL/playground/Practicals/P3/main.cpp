@@ -225,10 +225,6 @@ int main(void){
             p40->rotate(-0.006, 'Z');
         }
 
-        if (glfwGetKey(window, GLFW_KEY_EQUAL) == GLFW_PRESS)
-        {
-            selected->scale(1.01f);
-        }
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS )
         {
             sel->rotate(0.06f, 'X');
@@ -268,23 +264,14 @@ int main(void){
         {   
             p40->enabileWire();
         }
-
-        if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
-        {   
-            sel = cube;
+        if (glfwGetKey(window, GLFW_KEY_MINUS) == GLFW_PRESS)
+        {
+            p40->updateRot(-0.005);
         }
 
-        if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
-        {   
-            sel = prism;
-        }
-        if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
-        {   
-            sel = cone;
-        }
-        if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
-        {   
-            sel = cylinder;
+        if (glfwGetKey(window, GLFW_KEY_EQUAL) == GLFW_PRESS)
+        {
+            p40->updateRot(0.005);
         }
     }
 
