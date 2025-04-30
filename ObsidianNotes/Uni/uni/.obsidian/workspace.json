@@ -13,12 +13,32 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 314 Artificial Intelligence/Metaheuristics.md",
+                "file": "Cos 301 Software eng/Capstone Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Metaheuristics"
+              "title": "Capstone Notes"
+            }
+          }
+        ]
+      },
+      {
+        "id": "43b2ea828143326f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3271b6cfa9ad7fea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cos 301 Software eng/Capstone Prop Notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Capstone Prop Notes"
             }
           }
         ]
@@ -142,13 +162,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cos 314 Artificial Intelligence/Metaheuristics.md",
+                "file": "Cos 301 Software eng/Capstone Notes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Metaheuristics"
+              "title": "Outline of Capstone Notes"
             }
           }
         ],
@@ -170,11 +190,22 @@
   },
   "active": "de419e82a1fb9340",
   "lastOpenFiles": [
+    "Cos 301 Software eng/Capstone Prop Notes.md",
+    "Cos 301 Software eng/Capstone Notes.md",
+    "Cos 301 Software eng/Capstone proposals.md",
+    "Pasted image 20250428200246.png",
+    "Pasted image 20250428200226.png",
+    "Pasted image 20250428200126.png",
+    "Pasted image 20250428195925.png",
+    "Pasted image 20250428195617.png",
+    "Pasted image 20250428195600.png",
+    "Pasted image 20250428195304.png",
+    "Pasted image 20250428195225.png",
+    "Pasted image 20250428195127.png",
+    "Cos 314 Artificial Intelligence/Metaheuristics.md",
     "Cos 314 Artificial Intelligence/Book/Chapter 1.md",
     "Cos 314 Artificial Intelligence/Assignment 1 notes.md",
     "Cos 314 Artificial Intelligence/Ch 1 & 2.md",
-    "Cos 314 Artificial Intelligence/Metaheuristics.md",
-    "Cos 301 Software eng/Capstone proposals.md",
     "Cos 301 Software eng/Software Architecture/Capstone Selected.md",
     "Cos 301 Software eng/Mini-Project Planning.md",
     "Cos 301 Software eng/Mini-Project Meetings.md",
@@ -193,18 +224,7 @@
     "Cos 344 Graphics/Lecture 7.md",
     "Cos 314 Artificial Intelligence/Ch 4.md",
     "Pasted image 20250403152726.png",
-    "Pasted image 20250403152647.png",
-    "Pasted image 20250403152529.png",
-    "Pasted image 20250403152451.png",
-    "Pasted image 20250403152438.png",
-    "Pasted image 20250403152200.png",
-    "Pasted image 20250403152113.png",
-    "Pasted image 20250403152112.png",
-    "Pasted image 20250403152031.png",
-    "Pasted image 20250403151951.png",
     "Cos 344 Graphics/Book/Chapter 1.md",
-    "Cos 344 Graphics/Ct3.md",
-    "Cos 344 Graphics/Lecture 8.md",
-    "Cos 344 Graphics/Prac 2 notes.md"
+    "Cos 344 Graphics/Ct3.md"
   ]
 }

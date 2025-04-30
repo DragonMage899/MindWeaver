@@ -179,15 +179,15 @@ First step is figure out how many columns are being returned by the projection
 ![[Pasted image 20250428105820.png]]
 We have an answer the projection is returning 5 columns
 
-Not let's try a union Select
+
 ![[Pasted image 20250428110029.png]]
 ![[Pasted image 20250428110037.png]]
-Perfect we can use the union select the populate the table!
 
-Let's try to get the sql engine, the write up mentions sql lite so that would be a good starting point.
+
+
 
 ![[Pasted image 20250428110406.png]]
-The first field doesn't seem to help us, let's try the next one
+
 
 ![[Pasted image 20250428110450.png]]
 And there we go!
@@ -268,12 +268,194 @@ Another kill switch flag, we're one step close to shutting down ares
 
 
 ## Task 11 Logic flaws
+![[Pasted image 20250428114749.png]]
+We have a store front with a Coupon Code!
+
+Let's add the OmniKey to our cart and see what we can do at the checkout page
+DISCOUNT10
+
+![[Pasted image 20250428114910.png]]
+Seems like we're $80 short even after applying our coupon!
+But hold on, looks like we can apply the coupon multiple times, how thoughtful of the developers to consider the state of you wallet.
+
+![[Pasted image 20250428115157.png]]
+We can now afford the OmniKey, but hold on I'd like an ice cream aswell
+![[Pasted image 20250428115234.png]]
+That's a lot better, but we can do a bit better
+![[Pasted image 20250428115407.png]]
+Unfortunately there doesn't appear to be any other coupon codes after trying a few versions of "DISCOUNT10" such as "DISCOUNT100" does nothing.
+
+Time to checkout
+![[Pasted image 20250428115529.png]]
+ MWR{One-Key-To-Rule-Them-All}
+
 
 ## Task 12 File upload
+We have an avatar upload page!
+![[Pasted image 20250428115644.png]]
+
+Let's see how this works:
+![[Pasted image 20250428115845.png]]
+
+![[Pasted image 20250428115911.png]]
+Looks like the file get's uploaded to a path that we can easily access.
+
+Let's try a different format:
+![[Pasted image 20250428121930.png]]
+
+![[Pasted image 20250428121414.png]]
+Interesting, this makes it sounds like it's looking for jpg anywhere in the filename and not looking at the file type itself
+Let's try renaming our text file to jpg.txt
+![[Pasted image 20250428122103.png]]
+Our blank text file got uploaded!
+Let's try i one more time with text this time:
+![[Pasted image 20250428122221.png]]
+![[Pasted image 20250428122229.png]]
+
+Right, now let's try to upload a reverse shell
+![[Pasted image 20250428123145.png]]
+We'll save this as jpg.png and upload it
+![[Pasted image 20250428122459.png]]
+
+Before we navigate to the shell let's start listening with netcat
+![[Pasted image 20250428123448.png]]
+
+and we've got access to the server
+running the id command gives us another flag:
+![[Pasted image 20250428123548.png]]
+MWR{Ares-Compromised}
 
 ## Task 13 Race conditions
+Logging in with the details provided drops into a transaction page
+![[Pasted image 20250428123818.png]]
+We'll make a transaction to account 1 
+![[Pasted image 20250428123851.png]]
+While we wait for this timer let's investigate the request 
+![[Pasted image 20250428123928.png]]
+We'll update the admin field for good measure and set up 
+We'll now duplicate this to the maximum amount burp suit allows which is 100 we see a current balance of 9,999,750,000.00
+
+Logging back into the transaction page. Seems we'd need to make 39999 transaction to empty the account yikes! We might need to write a python script for this.
+
+First let's make sure the last-byte synchronization attack works with the 100 requests we've made. Let's add them all to a group and start the attack
+![[Pasted image 20250428124513.png]]
+
+Let's go back to the transaction and see how much damage we've done:
+![[Pasted image 20250428124721.png]]
+
+Thankfully we got the flag without having to completely empty the account
 
 ## Root
+Our goal is to get root to the mainframe (I'm finally hacking a mainframe!)
+First of let's go over what we know and have
+
+Let's have another look at the open ports
+![[Pasted image 20250415192920.png]]
+There's nothing that stands out here. 
+We there's a user called garcher from Task 9
+We have a reverse through our reverse shell
+We'll upload a few more reverse shells with different ports so that we can explore the scan while some scans run the background.
+
+![[Pasted image 20250428133110.png]]
+Let's try to gain access to the root folder
 
 
-# Vulnerability Report
+First off let's scan a system wide scan for SUID binaries owned by the root.
+If we can try one of these we'll get immediate root access:
+`find / -perm -4000 2>/dev/null`
+
+
+While this is running let's start collecting information about the system
+![[Pasted image 20250428131143.png]]
+![[Pasted image 20250428131214.png]]
+![[Pasted image 20250428131251.png]]
+![[Pasted image 20250428131310.png]]
+![[Pasted image 20250428131348.png]]
+![[Pasted image 20250428131406.png]]
+![[Pasted image 20250428131606.png]]
+![[Pasted image 20250428131637.png]]
+
+That's a bunch of information!
+We'll save it all to a text file just in case we lose the terminal
+
+Normally we'd start carefully examining this looking clues but we luckily for us we have super AI companion that can do a quick recon for us and point us in promising directions:
+
+### System Information:
+
+- **OS**: Ubuntu 20.04.6 LTS (Focal Fossa)
+- **Kernel**: 5.15.0-117-generic
+- **Architecture**: x86_64
+- **User**: `www-data`
+    - **UID**: 33
+    - **Groups**: `www-data`, and **MWR{Ares-Compromised}** (a suspicious/CTF-like group name — may hint at a flag or special permissions)
+        
+
+---
+
+### Current Access:
+- **Shell**: Low-privilege reverse shell (`www-data` user, typical for web server).
+- **Shell limitations**: No terminal job control (`cannot set terminal process group` warning).
+- **Environment**: Default Apache environment variables present.
+    
+
+---
+
+### Cron Jobs:
+- `/etc/crontab` shows only standard system-wide crons (running system jobs via `run-parts`), **no obvious custom cron jobs** for escalation.
+- Important to note: you may need to check inside `/etc/cron.{hourly,daily,weekly,monthly}` directories for hidden escalation vectors.
+    
+
+---
+
+### Processes:
+- Only **root** system processes observed.
+- No strange, custom, or user processes yet (though your output got cut off — might need to scroll further).
+- Apache (`www-data`) server must be running, but it wasn't listed yet in what you pasted — would be good to confirm the Apache process to know the parent PID.
+
+---
+
+### Potential Escalation Leads:
+
+1. **Special Group: `MWR{Ares-Compromised}`**
+    - Being in a **non-standard group** is **very suspicious**.
+    - This group might have special file or sudo permissions.
+    - Enumerate group-owned files (`find / -group MWR{Ares-Compromised} 2>/dev/null`) — may find writable files, scripts, or binaries.
+        
+2. **Writable Directories**
+    - You landed in `/var/www/html/TASK12/uploads` — a typical web upload directory.
+    - Check for **writable directories or files** system-wide or related to Apache that could be abused.
+    
+3. **SUID/SGID binaries**
+    - Standard for privilege escalation to check if there are custom or vulnerable SUID binaries
+    - Run:    find / -perm -4000 -type f 2>/dev/null
+
+4. **Weak permissions or misconfigurations**
+
+    Apache running as www-data may have access to configuration files, backups, or logs.
+    Check /var/www, /var/backups, and /etc/apache2 for misconfigurations or sensitive credentials.
+
+There doesn't appear to be any standouts.
+Let's have a look at the result of our suid scan, we can once again use our trusty ai to examine the output and look for vulnerable binaries 
+![[Pasted image 20250428132245.png]]
+![[Pasted image 20250428132304.png]]
+But hold on.
+We have something very interesting over here!
+Looks like we have a custom user binary with an ominous name 
+![[Pasted image 20250428132319.png]]
+Let's explore a bit further 
+![[Pasted image 20250428132555.png]]
+Looks like we need a password
+![[Pasted image 20250428132645.png]]
+
+I suppose that would've been a bit too easy
+
+Let's run the binary through strings and see what we get
+![[Pasted image 20250428132823.png]]
+Looks like we have a c++ program, let's dig a bit more
+![[Pasted image 20250428132852.png]]
+This appears to spawn a shell with possible root access and luckily for us it looks like the password has not been obscured
+
+And there we have it!
+![[Pasted image 20250428133223.png]]
+
+With the help of the architect ares has been defeated and MWR has saved the day!

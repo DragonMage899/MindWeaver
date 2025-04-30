@@ -13,4 +13,4 @@ The above are just a few of the many status codes returned by web servers, but a
 
 
 ///
-`gobuster dir -u 10.10.175.17/TASK5 -w /home/Dragon/Code/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 100`
+`gobuster dir -u 10.10.175.125/TASK5 -w /home/Dragon/Code/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -t 100`
