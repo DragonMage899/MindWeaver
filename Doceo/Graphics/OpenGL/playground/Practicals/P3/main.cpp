@@ -227,39 +227,40 @@ int main(void){
 
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS )
         {
-            sel->rotate(0.06f, 'X');
+            p40->rotate(0.06f, 'X');
         }
         if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
         {
-            sel->rotate(-0.06f, 'X');
+            p40->rotate(-0.06f, 'X');
         }
         if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS )
         {
-            sel->rotate(0.06f, 'Y');
+            p40->rotate(0.06f, 'Y');
         }
         if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
         {
-            sel->rotate(-0.06f, 'Y');
-        }
-        if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS )
-        {
-            sel->rotate(0.06f, 'Z');
+            p40->translate(-0.04,0,0);
         }
         if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
         {
-            sel->rotate(-0.06f, 'Z');
+            p40->translate(0.04,0,0);
         }
-
-        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS )
         {
-            sel->translate(-0.003, 0, 0);
+            p40->translate(0,0.04,0);
         }
-
-        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
         {
-            sel->translate(0.003, 0, 0);
+            p40->translate(0,-0.04,0);
         }
-
+        if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS )
+        {
+            p40->translate(0,0,0.04);
+        }
+        if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+        {
+            p40->translate(0,0,-0.04);
+        }
         if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
         {   
             p40->enabileWire();
