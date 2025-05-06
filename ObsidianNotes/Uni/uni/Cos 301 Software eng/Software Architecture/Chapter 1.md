@@ -6,3 +6,4 @@ Life cycle activities:
 - Software development
 - Software QA
 - Software project management activities 
+

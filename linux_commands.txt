@@ -1,4 +1,4 @@
-rdp:
+﻿rdp:
     xfreerdp /u:{username} /p:{password} /v:{ip} /dynamic-resolution
 
 list processes:
@@ -18,4 +18,9 @@ Syu update conflict
 
     Remove orphans
     pacman -Qo /usr/lib/pkgconfig/package-*.pc    
+
+smb:
+sudo mount --bind "/run/media..." /mnt/shared_drive
+sudo systemctl restart smb
+check: smbclient //localhost/Shared -U Dragon
 
