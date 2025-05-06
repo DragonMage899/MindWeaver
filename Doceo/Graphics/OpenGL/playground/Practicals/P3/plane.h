@@ -226,11 +226,11 @@ class Plane{
         double armWidth = 0.05;
         double armLength = 0.05;
         Shapes3D* rearArm = new Cube(rearArmPos, armHeight, armWidth, armLength, darkGrey, shader_program, vao);
-        rearArm->translate(1.2, -0.4, 0); 
+        rearArm->translate(0.9, -0.4, 0); 
         
         Vector<3> rearWheelPos(new double[3]{0, 0, 0});
         Shapes3D* rearWheel = new Cylinder(rearWheelPos, 0.08, 0.06, black, shader_program, vao, 12);
-        rearWheel->translate(1.2, -0.55, 0);
+        rearWheel->translate(0.9, -0.55, -0.025);
         
         Vector<3> leftArmPos(new double[3]{0, 0, 0});
         double mainArmHeight = 0.3;
@@ -243,7 +243,7 @@ class Plane{
         
         Vector<3> rightArmPos(new double[3]{0, 0, 0});
         Shapes3D* rightArm = new Cube(rightArmPos, mainArmHeight, armWidth, armLength, darkGrey, shader_program, vao);
-        rightArm->translate(0, -0.5, -0.3);
+        rightArm->translate(0, -0.5, -0.2);
         
         Vector<3> rightWheelPos(new double[3]{0, 0, 0});
         Shapes3D* rightWheel = new Cylinder(rightWheelPos, 0.15, 0.1, black, shader_program, vao, 12);
