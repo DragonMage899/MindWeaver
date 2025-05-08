@@ -17,6 +17,10 @@ Guest Lecture
 
 The semester test will focus more on theory and its application/reasoning. While a portion of the test will contain mathematics, but it will not be to the same degree as the class tests.
 # Cos 333
+Ch16
+Ch5
+Ch6
+
 The scope of the first semester test includes Chapters 16, 5, and 6. Below is more detail on the individual chapters:
 **General**
   Note that the textbook covers material that the slides do not, and vice versa. Please study from both. Also note that I have included numerous notes for many of the slides, which can be viewed in PowerPoint or LibreOffice.

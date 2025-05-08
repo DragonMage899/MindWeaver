@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 314 Artificial Intelligence/Chat/Meta heuristics/3.Gram evo.md",
+                "file": "mentorship/roadmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3.Gram evo"
+              "title": "roadmap"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 333 Programming languages/Lecture 12.md",
+                "file": "Cos 333 Programming languages/ch6 Data types.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lecture 12"
+              "title": "ch6 Data types"
             }
           }
         ],
@@ -157,13 +157,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cos 333 Programming languages/Lecture 12.md",
+                "file": "Cos 333 Programming languages/ch6 Data types.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Lecture 12"
+              "title": "Outline of ch6 Data types"
             }
           }
         ],
@@ -185,12 +185,27 @@
   },
   "active": "de419e82a1fb9340",
   "lastOpenFiles": [
-    "Cos 333 Programming languages/Lecture 11.md",
-    "Cos 333 Programming languages/Lecture 10.md",
+    "Pasted image 20250508192610.png",
+    "Pasted image 20250508192604.png",
+    "Pasted image 20250508192558.png",
+    "Pasted image 20250508192552.png",
+    "Pasted image 20250508192541.png",
+    "Pasted image 20250508192522.png",
+    "Pasted image 20250508192448.png",
+    "Pasted image 20250508192421.png",
+    "Pasted image 20250508192408.png",
+    "Pasted image 20250508192348.png",
+    "Pasted image 20250508192316.png",
+    "Cos 333 Programming languages/ch5 Names, Bindings and Scope.md",
+    "Cos 333 Programming languages/ch6 Data types.md",
     "Cos 333 Programming languages/Lecture 12.md",
-    "Cos 333 Programming languages/ch16 pt1.md",
+    "mentorship/roadmap.md",
+    "Cos 333 Programming languages/ch16.md",
+    "mentorship",
     "Planning/ST2.md",
     "Cos 314 Artificial Intelligence/Chat/Meta heuristics/3.Gram evo.md",
+    "Cos 333 Programming languages/Lecture 11.md",
+    "Cos 333 Programming languages/Lecture 10.md",
     "Cos 314 Artificial Intelligence/Chat/Meta heuristics/2.Gen Prog.md",
     "Cos 314 Artificial Intelligence/Chat/Meta heuristics/General.md",
     "Cos 314 Artificial Intelligence/Chat/Meta heuristics/1.Gen Algo.md",
@@ -200,17 +215,7 @@
     "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
     "Cos 301 Software eng/Lectures/6 - Testing.md",
     "Cos 301 Software eng/Lectures/5 - Use Case.md",
-    "Pasted image 20250504135802.png",
-    "Pasted image 20250504135755.png",
-    "Pasted image 20250504135730.png",
-    "Pasted image 20250504135722.png",
-    "Pasted image 20250504135710.png",
-    "Pasted image 20250504135703.png",
-    "Pasted image 20250504135655.png",
-    "Pasted image 20250504135648.png",
-    "Pasted image 20250504135636.png",
     "Cos 301 Software eng/Lectures/4 - Domain modelling.md",
-    "Pasted image 20250504133829.png",
     "Cos 301 Software eng/Lectures/3 - Requirement Elicitation.md",
     "Cos 301 Software eng/Lectures/2 - Intro to Software Eng.md",
     "Cos 301 Software eng/Lectures/1 - Intro.md",
@@ -219,10 +224,6 @@
     "Cos 301 Software eng/Software Architecture/Func Req.md",
     "Cos 301 Software eng/Software Architecture/Daemon comms (core functions).md",
     "Cos 301 Software eng/Software Architecture/Capstone Selected.md",
-    "Cos 301 Software eng/Lectures",
-    "Cos 344 Graphics/HW.md",
-    "Cos 301 Software eng/Capstone Notes.md",
-    "Cos 301 Software eng/Capstone Prop Notes.md",
-    "Cos 301 Software eng/Capstone proposals.md"
+    "Cos 301 Software eng/Lectures"
   ]
 }
