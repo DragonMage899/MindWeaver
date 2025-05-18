@@ -3,7 +3,7 @@
 class Triangle3D : public Shape {
 private:
     Vector<3> v0, v1, v2;
-    //Vector<3> color;
+    Vector<3> color;
     GLuint programID, VAO;
 
 public:
@@ -11,7 +11,8 @@ public:
             v0 = a;
             v1 = b;
             v2 = c;
-            setColor(col[0], col[1], col[2], 1.0f);
+            color = col;
+            setColor(col[0], col[1], col[2]);
         }
 
     void applyTransform(const Matrix<4, 4>& M){
@@ -20,8 +21,13 @@ public:
         v2 = applyToVertex(v2, M);
     }
 
-    void updateOpacity(float op) override{
+    void updateOpacity(float op){
         setColor(color[0], color[1], color[2], op);
+    }
+
+    void updateColor(Vector<3> col) {
+        color = col;
+        setColor(col[0], col[1], col[2]);
     }
 
 void draw() override {
@@ -57,6 +63,31 @@ void draw() override {
         return {v0, v1, v2};
     }
 
+    Vector<3> getV0() const { return v0; }
+    Vector<3> getV1() const { return v1; }
+    Vector<3> getV2() const { return v2; }
+
+    Vector<3> getBaseColor() const {
+        return color; 
+    }
+
+    Vector<3> getCenter() const {
+        double centerX = (v0[0] + v1[0] + v2[0]) / 3.0;
+        double centerY = (v0[1] + v1[1] + v2[1]) / 3.0;
+        double centerZ = (v0[2] + v1[2] + v2[2]) / 3.0;
+        return Vector<3>(new double[3]{centerX, centerY, centerZ});
+    }
+
+    Vector<3> getNormal() const {
+        Vector<3> edge1 = v1 - v0;
+        Vector<3> edge2 = v2 - v0;
+        Vector<3> normal = edge1.crossProduct(edge2);
+        double mag = normal.magnitude();
+        mag = 1 / mag;
+        Vector<3> normal1 = normal * mag;
+        return normal1;
+    }
+
 
 private:
     Vector<3> applyToVertex(const Vector<3>& v, const Matrix<4, 4>& M) const {
@@ -86,7 +117,7 @@ private:
 };
 
 class Rectangle3D : public Shape {
-private:
+public:
     Triangle3D* tri1;
     Triangle3D* tri2;
 
@@ -123,17 +154,18 @@ public:
         return verts1;
     }
 
-    void updateOpacity(float op) override {
-        Shape::updateOpacity(op);
-        tri1->updateOpacity(op);  
-        tri2->updateOpacity(op);
+    void setColor(float red, float green, float blue, float alpha = 1.0f) override {
+        Shape::setColor(red, green, blue, alpha);
+        
+        tri1->setColor(red, green, blue, alpha);
+        tri2->setColor(red, green, blue, alpha);
     }
 
 };
 
 
 class Shapes3D : public Shape {
-protected:
+public:
     Matrix<4, 4> transform;
     Shape** shapes;
     int numShapes;
@@ -151,28 +183,10 @@ public:
     }
 
     void setOp(float opacity) {
-        updateOpacity(opacity);
-        for (int i = 0; i < numShapes; ++i) {
-            shapes[i]->updateOpacity(opacity);
-        }
+        color[3] = opacity;
+        this->setColor(color[0], color[1], color[2], color[3]);
+        
     }
-
-    void addOp(float opacity) {
-        float currentOp = color[4];
-        updateOpacity(currentOp + opacity);
-        for (int i = 0; i < numShapes; ++i) {
-            shapes[i]->updateOpacity(currentOp + opacity);
-        }
-    }
-
-    void decOp(float opacity) {
-        float currentOp = color[4];
-        updateOpacity(currentOp - opacity);
-        for (int i = 0; i < numShapes; ++i) {
-            shapes[i]->updateOpacity(currentOp - opacity);
-        }
-    }
-    
     virtual ~Shapes3D() {
         for (int i = 0; i < numShapes; ++i) {
             delete shapes[i];
@@ -347,6 +361,37 @@ public:
         return Vector<3>(centerArr);
     }
 
+    void setColor(float red, float green, float blue, float alpha = 1.0f) override {
+        Shape::setColor(red, green, blue, alpha);
+        
+        for (int i = 0; i < numShapes; ++i) {
+            shapes[i]->setColor(red, green, blue, alpha);
+        }
+    }
+
+    void changeFaceColor() {
+        float hueStep = 1.0f / numShapes;
+        
+        for (int i = 0; i < numShapes; ++i) {
+            float hue = i * hueStep;
+            
+            float r, g, b;
+            float h = hue * 6.0f;
+            int sector = static_cast<int>(floor(h));
+            float f = h - sector;
+            
+            switch(sector % 6) {
+                case 0: r = 1.0f; g = f; b = 0.0f; break;
+                case 1: r = 1.0f - f; g = 1.0f; b = 0.0f; break;
+                case 2: r = 0.0f; g = 1.0f; b = f; break;
+                case 3: r = 0.0f; g = 1.0f - f; b = 1.0f; break;
+                case 4: r = f; g = 0.0f; b = 1.0f; break;
+                case 5: r = 1.0f; g = 0.0f; b = 1.0f - f; break;
+            }
+            
+            shapes[i]->setColor(r, g, b);
+        }
+    }
 };
 
 class Cube : public Shapes3D {
@@ -394,6 +439,10 @@ public:
 
         numShapes = 6;
         shapes = new Shape*[6]{ front, back, leftF, rightF, bottoms, tops };
+    
+        this->color[0] = color[0];
+        this->color[1] = color[1];
+        this->color[2] = color[2];
     }
 
     Shape** getShapes(){
@@ -425,13 +474,12 @@ public:
 
         numShapes = 5;
         shapes = new Shape*[numShapes]{ front, back, side1, side2, side3 };
+        
+        this->color[0] = color[0];
+        this->color[1] = color[1];
+        this->color[2] = color[2];
     }
-    void setOp(float opacity) {
-        updateOpacity(opacity);
-        for (int i = 0; i < numShapes; ++i) {
-            shapes[i]->updateOpacity(opacity);
-        }
-    }
+
 };
 
 class Circle3D : public Shape {
@@ -475,16 +523,16 @@ public:
         }
     }
 
-    void updateOpacity(float op) override {
-        Shape::updateOpacity(op);
-        for (auto* t : triangles) {
-            t->updateOpacity(op);
-        }
-    }
-
     void draw() override {
         for (auto* t : triangles) {
             t->draw();
+        }
+    }
+
+    void setColor(float red, float green, float blue, float alpha = 1.0f) override {
+        Shape::setColor(red, green, blue, alpha);
+        for (auto* t : triangles) {
+            t->setColor(red, green, blue, alpha);
         }
     }
 
@@ -534,13 +582,10 @@ public:
         shapes = temp;
 
         delete[] basePoints;
-    }
-    void setOp(float opacity) {
-        updateOpacity(opacity);
-        for (int i = 0; i < numShapes; ++i) {
-            shapes[i]->updateOpacity(opacity);
-        }
-        shapes[numShapes-1]->updateOpacity(opacity);
+
+        this->color[0] = color[0];
+        this->color[1] = color[1];
+        this->color[2] = color[2];
     }
 };
 
@@ -587,14 +632,103 @@ public:
 
         delete[] basePoints;
         delete[] topPoints;
-    }
-    void setOp(float opacity) {
-        updateOpacity(opacity);
-        for (int i = 0; i < numShapes; ++i) {
-            shapes[i]->updateOpacity(opacity);
-        }
-        shapes[numShapes-2]->updateOpacity(opacity);
-        shapes[numShapes-1]->updateOpacity(opacity);
+
+        this->color[0] = color[0];
+        this->color[1] = color[1];
+        this->color[2] = color[2];
     }
 };
 
+class Sphere : public Shapes3D {
+    public:
+        Sphere(Vector<3> center, double radius, Vector<3> sphere_color, GLuint sid, GLuint vao, int quality = 16)
+            : Shapes3D(sid, vao) {
+    
+            int stacks = quality < 3 ? 3 : quality;  // Number of horizontal divisions (latitude lines)
+            int sectors = quality < 3 ? 3 : quality; // Number of vertical divisions (longitude lines)
+    
+            this->setColor(sphere_color[0], sphere_color[1], sphere_color[2]);
+            std::vector<Vector<3>> sphere_vertices;
+    
+            sphere_vertices.push_back(Vector<3>(new double[3]{center[0], center[1], center[2] + radius}));
+    
+            for (int i = 1; i < stacks; ++i) {
+                double phi = M_PI * (double)i / stacks; 
+
+                for (int j = 0; j < sectors; ++j) { 
+                    double theta = 2.0 * M_PI * (double)j / sectors;
+    
+                    double x = radius * std::sin(phi) * std::cos(theta);
+                    double y = radius * std::sin(phi) * std::sin(theta);
+                    double z_offset = radius * std::cos(phi); // Name z_offset to avoid conflict if center has 'z' member
+    
+                    sphere_vertices.push_back(Vector<3>(new double[3]{center[0] + x, center[1] + y, center[2] + z_offset}));
+                }
+            }
+    
+           sphere_vertices.push_back(Vector<3>(new double[3]{center[0], center[1], center[2] - radius}));
+    
+            std::vector<Triangle3D*> triangles_list;
+    
+            int top_pole_idx = 0;
+
+            for (int j = 0; j < sectors; ++j) {
+                int current_ring_v_idx = 1 + j;
+                int next_ring_v_idx = 1 + (j + 1) % sectors; 
+    
+                
+                triangles_list.push_back(new Triangle3D(
+                    sphere_vertices[top_pole_idx],        
+                    sphere_vertices[current_ring_v_idx],  
+                    sphere_vertices[next_ring_v_idx],    
+                    sphere_color, shader_program, VAO));
+            }
+    
+            for (int i = 0; i < stacks - 2; ++i) { 
+                int current_ring_start_idx = 1 + i * sectors;
+                int next_ring_start_idx = 1 + (i + 1) * sectors;
+    
+                for (int j = 0; j < sectors; ++j) {
+                    int tl_idx = current_ring_start_idx + j;
+                    int tr_idx = current_ring_start_idx + (j + 1) % sectors;
+                    int bl_idx = next_ring_start_idx + j;
+                    int br_idx = next_ring_start_idx + (j + 1) % sectors;
+    
+                    triangles_list.push_back(new Triangle3D(
+                        sphere_vertices[tl_idx],
+                        sphere_vertices[bl_idx],
+                        sphere_vertices[br_idx],
+                        sphere_color, shader_program, VAO));
+    
+                    triangles_list.push_back(new Triangle3D(
+                        sphere_vertices[tl_idx],
+                        sphere_vertices[br_idx],
+                        sphere_vertices[tr_idx],
+                        sphere_color, shader_program, VAO));
+                }
+            }
+    
+            int bottom_pole_idx = sphere_vertices.size() - 1;
+            int last_ring_start_idx = 1 + (stacks - 2) * sectors;
+            for (int j = 0; j < sectors; ++j) {
+                int current_ring_v_idx = last_ring_start_idx + j;
+                int next_ring_v_idx = last_ring_start_idx + (j + 1) % sectors;
+    
+                triangles_list.push_back(new Triangle3D(
+                    sphere_vertices[bottom_pole_idx],     
+                    sphere_vertices[next_ring_v_idx],     
+                    sphere_vertices[current_ring_v_idx],  
+                    sphere_color, shader_program, VAO));
+            }
+    
+            this->numShapes = triangles_list.size();
+            this->shapes = new Shape*[this->numShapes];
+            for (int k = 0; k < this->numShapes; ++k) {
+                this->shapes[k] = triangles_list[k];
+            }
+        }
+    
+        ~Sphere() override {
+        }
+    
+    };

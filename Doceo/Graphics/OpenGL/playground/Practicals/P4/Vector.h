@@ -19,6 +19,7 @@ public:
     ~Vector();
     Vector(const Vector<n> &);
     Vector(const Matrix<n,1>& );
+    Vector<n> normal();
     Vector<n>& operator=(const Vector<n>&);
     Vector<n> operator+(const Vector<n>) const;
     Vector<n> operator-(const Vector<n>) const;
@@ -51,6 +52,13 @@ template <int n>
 Vector<n>::Vector()
 {
     arr = new double[n]();
+}
+
+template <int n>
+Vector<n> Vector<n>::normal(){
+    double invMag = 1 / this->magnitude();
+    Vector<n> norm = this * invMag;
+    return norm;
 }
 
 template <int n>

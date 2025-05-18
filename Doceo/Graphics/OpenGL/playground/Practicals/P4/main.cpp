@@ -10,17 +10,21 @@
 
 #include "Matrix.h"
 #include "Vector.h"
-#include "shapes3.h"
+#include "scene.h"
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    //std::cout << "Window Resized" << std::endl;
     glViewport(0, 0, width, height);
 }
 
 void processInput(GLFWwindow *window);
 
-int main(void) {
+int main(void){
+
     GLFWwindow* window;
 
+    /* Initialize the library */
     if (!glfwInit())
         return -1;
 
@@ -28,260 +32,469 @@ int main(void) {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window = glfwCreateWindow(800, 600, "IT Kiosk Floor Plan", NULL, NULL);
-    if (!window) {
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(800, 600, "u22490079", NULL, NULL);
+    if (!window)
+    {  
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
 
+    /* Make the window's context current */
     glfwMakeContextCurrent(window);
+    
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_NEAREST);
-    glDisable(GL_CULL_FACE);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glDepthFunc(GL_NEAREST);
+    glDisable(GL_CULL_FACE);
 
-    glewExperimental = GL_TRUE;
+    // Initialize GLEW
+    glewExperimental = GL_TRUE; // Needed for core profile
     if (glewInit() != GLEW_OK) {
         std::cerr << "Failed to initialize GLEW" << std::endl;
         return -1;
     }
 
+    //render window size
     glViewport(0, 0, 800, 600);
+
+    //update viewport on window resize
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     //=====================================================
 
-    // Shader setup
+    float triangle[] = {
+        0.2f, 0.1f, 0.0f, 
+        0.5f, 0.4f, 0.0f,
+        0.8f, 0.1f, 0.0f
+    };
+
+    float square[] = {
+        -0.6f, -0.2f, 0.0f
+    };
+
+
+    float rect[] = {
+        -0.8f, 0.8f, 0.0f, 
+        -0.2f, 0.8f, 0.0f, 
+        -0.2f, 0.6f, 0.0f, 
+        -0.8f, 0.6f, 0.0f 
+    };
+
+    //Objects
+    //=====================================================
+    float nil_pt[] = {
+        0.0f, 0.0f, 1.0f, 
+        0.0f, -0.0f, 1.0f,
+        0.0f, 0.0f, 1.0f
+    };
+
+    //=====================================================
+
+    unsigned int indices[] = { // note that we start from 0!
+        0, 1, 3, // first triangle
+        1, 2, 3 // second triangle
+    };
+
+    // Generate and bind the VAO
+    unsigned int VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    // Generate and bind the VBO
+    unsigned int VBO;
+    glGenBuffers(1, &VBO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    //Generate and bind the EBO for rectangle
+    unsigned int EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    // Define how OpenGL should interpret vertex data
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+
+    // Compile and load shaders
     GLuint programID = LoadShaders("vertexShader.glsl", "fragmentShader.glsl");
     if (programID == 0) {
         std::cerr << "Failed to load shaders." << std::endl;
         return -1;
     }
+        //Static Shapes
+        std::vector<Shape*> people;
+        Circle player(programID, VAO, 0.02, -0.85, 0.8, 12);
+        player.setColor(1.0f, 0.0f, 0.0f);
+        people.push_back(&player);
 
-    // VAO setup
-    unsigned int VAO;
-    glGenVertexArrays(1, &VAO);
-    glBindVertexArray(VAO);
+        Triangle nil(programID, VAO, nil_pt);
 
-    // IT Kiosk Floor Plan Definition
-    std::vector<Shape*> kioskElements;
+        bool wire = false;
+        Shape* selected = &player;
 
-    // 1. Base floor (main rectangle)
-    float baseFloorPoints[] = {
-        -0.9f, -0.9f, 0.0f,
-        0.9f, -0.9f, 0.0f,
-        0.9f, 0.9f, 0.0f,
-        -0.9f, 0.9f, 0.0f
-    };
-    Rectangle baseFloor(programID, VAO, baseFloorPoints);
-    baseFloor.setColor(0.5f, 0.5f, 0.5f); // Grey color for the floor
-    kioskElements.push_back(&baseFloor);
+        //2D
 
-    // 2. Central walkway
-    float walkwayPoints[] = {
-        -0.1f, -0.9f, 0.0f,
-        0.1f, -0.9f, 0.0f,
-        0.1f, 0.9f, 0.0f,
-        -0.1f, 0.9f, 0.0f
-    };
-    Rectangle walkway(programID, VAO, walkwayPoints);
-    walkway.setColor(0.8f, 0.8f, 0.8f); // Lighter grey for walkway
-    kioskElements.push_back(&walkway);
+        //3D
 
-    // Seating booths (rectangles) - Increased number
-    // 3. Booth 1
-    float booth1Points[] = {
-        -0.8f, 0.6f, 0.0f,
-        -0.5f, 0.6f, 0.0f,
-        -0.5f, 0.8f, 0.0f,
-        -0.8f, 0.8f, 0.0f
-    };
-    Rectangle booth1(programID, VAO, booth1Points);
-    booth1.setColor(0.9f, 0.9f, 0.9f); // Booth color
-    kioskElements.push_back(&booth1);
+        //cuboid
+        Vector<3> cen(new double[3]{-0.6,0,0});
+        Vector<3> colsCube(new double[3]{0,0.5,0.4});
+        double hgt = 0.2;
+        double wid = 0.2;
+        double len = 0.2;
+        Shapes3D* cube = new Cube(cen, hgt, wid, len, colsCube, programID, VAO);
 
-    // 4. Booth 2
-    float booth2Points[] = {
-        0.5f, 0.6f, 0.0f,
-        0.8f, 0.6f, 0.0f,
-        0.8f, 0.8f, 0.0f,
-        0.5f, 0.8f, 0.0f
-    };
-    Rectangle booth2(programID, VAO, booth2Points);
-    booth2.setColor(0.9f, 0.9f, 0.9f);
-    kioskElements.push_back(&booth2);
+        //tri prism
+        Vector<3> baseA(new double[3]{0,0.8,0});
+        Vector<3> baseB(new double[3]{-0.3,0.5,0});
+        Vector<3> baseC(new double[3]{0.3,0.5,0});
+        Vector<3> colsPrism(new double[3]{0.9,0.5,0.5});
+        Shapes3D* prism = new TriangularPrism(baseA, baseB, baseC, 0.3, colsPrism, programID, VAO);
 
-    // 5. Booth 3 (opposite side)
-    float booth3Points[] = {
-        -0.8f, 0.2f, 0.0f,
-        -0.5f, 0.2f, 0.0f,
-        -0.5f, 0.4f, 0.0f,
-        -0.8f, 0.4f, 0.0f
-    };
-    Rectangle booth3(programID, VAO, booth3Points);
-    booth3.setColor(0.9f, 0.9f, 0.9f);
-    kioskElements.push_back(&booth3);
+        //cone
+        Vector<3> centerCone(new double[3]{0, -0.5, 0});
+        Vector<3> colorCone(new double[3]{1, 0.6, 0});
+        Shapes3D* cone = new Cone(centerCone, 0.3, 0.5, colorCone, programID, VAO, 16);
 
-    // 6. Booth 4 (opposite side)
-    float booth4Points[] = {
-        0.5f, 0.2f, 0.0f,
-        0.8f, 0.2f, 0.0f,
-        0.8f, 0.4f, 0.0f,
-        0.5f, 0.4f, 0.0f
-    };
-    Rectangle booth4(programID, VAO, booth4Points);
-    booth4.setColor(0.9f, 0.9f, 0.9f);
-    kioskElements.push_back(&booth4);
+        //cyl
+        Vector<3> centerCyl(new double[3]{0.5, 0, 0});
+        Vector<3> colorCyl(new double[3]{0, 0.7, 0.7});
+        Shapes3D* cylinder = new Cylinder(centerCyl, 0.2, 0.3, colorCyl, programID, VAO, 16);
 
-    // Tables (circles) - Increased number
-    // 7. Table 1
-    Circle table1(programID, VAO, 0.08f, -0.65f, 0.7f, 16);
-    table1.setColor(1.0f, 1.0f, 0.7f); // Table color
-    kioskElements.push_back(&table1);
+        //sphere
+        Vector<3> sphereCenter(new double[3]{0.0, 0.0, 0.0});
+        Vector<3> sphereColor(new double[3]{0.2, 0.5, 0.8});
+        double sphereRadius = 0.2;
+        int sphereQuality = 20; 
+        Sphere* sphere = new Sphere(sphereCenter, sphereRadius, sphereColor, programID, VAO, sphereQuality);
 
-    // 8. Table 2
-    Circle table2(programID, VAO, 0.08f, 0.65f, 0.7f, 16);
-    table2.setColor(1.0f, 1.0f, 0.7f);
-    kioskElements.push_back(&table2);
 
-    // 9. Table 3 (lower area)
-    Circle table3(programID, VAO, 0.08f, -0.4f, 0.3f, 16);
-    table3.setColor(1.0f, 1.0f, 0.7f);
-    kioskElements.push_back(&table3);
+        Shapes3D* sel = cube;
 
-    // 10. Table 4 (lower area)
-    Circle table4(programID, VAO, 0.08f, 0.4f, 0.3f, 16);
-    table4.setColor(1.0f, 1.0f, 0.7f);
-    kioskElements.push_back(&table4);
+        int index = 0;
+        float currentOp = 1;
+        bool wiremode = false;
+        double temp = 0;
 
-    // Counter (rectangle)
-    // 11. Counter
-    float counterPoints[] = {
-        -0.9f, -0.8f, 0.0f,
-        -0.7f, -0.8f, 0.0f,
-        -0.7f, -0.6f, 0.0f,
-        -0.9f, -0.6f, 0.0f
-    };
-    Rectangle counter(programID, VAO, counterPoints);
-    counter.setColor(0.7f, 0.7f, 1.0f); // Counter color
-    kioskElements.push_back(&counter);
+        //Scene
+        Scene* scene = new Scene(programID, VAO);
 
-    // Decorative elements (rectangles) - Added more detail
-    // 12. Decorative wall panel 1
-    float panel1Points[] = {
-        -0.9f, -0.5f, 0.0f,
-        -0.9f, -0.3f, 0.0f,
-        -0.85f, -0.3f, 0.0f,
-        -0.85f, -0.5f, 0.0f
-    };
-    Rectangle panel1(programID, VAO, panel1Points);
-    panel1.setColor(0.6f, 0.6f, 0.6f);
-    kioskElements.push_back(&panel1);
+        Shapes3D* glb = scene->getGlobe();
+        Shapes3D* back = scene->getBack();
 
-    // 13. Decorative wall panel 2
-    float panel2Points[] = {
-        0.9f, -0.5f, 0.0f,
-        0.9f, -0.3f, 0.0f,
-        0.85f, -0.3f, 0.0f,
-        0.85f, -0.5f, 0.0f
-    };
-    Rectangle panel2(programID, VAO, panel2Points);
-    panel2.setColor(0.6f, 0.6f, 0.6f);
-    kioskElements.push_back(&panel2);
+        std::vector<Shapes3D*> shp;
+        shp.push_back(glb);
+        shp.push_back(back);
 
-    // 14. Divider 1
-    float divider1Points[] = {
-        -0.3f, 0.1f, 0.0f,
-        -0.25f, 0.1f, 0.0f,
-        -0.25f, 0.5f, 0.0f,
-        -0.3f, 0.5f, 0.0f
-    };
-    Rectangle divider1(programID, VAO, divider1Points);
-    divider1.setColor(0.7f, 0.7f, 0.7f);
-    kioskElements.push_back(&divider1);
+        sel = glb;
 
-    // 15. Divider 2
-    float divider2Points[] = {
-        0.3f, 0.1f, 0.0f,
-        0.25f, 0.1f, 0.0f,
-        0.25f, 0.5f, 0.0f,
-        0.3f, 0.5f, 0.0f
-    };
-    Rectangle divider2(programID, VAO, divider2Points);
-    divider2.setColor(0.7f, 0.7f, 0.7f);
-    kioskElements.push_back(&divider2);
+        scene->rotate(0.3, 'Y');
+        scene->rotate(-0.3, 'X');
 
-    // Additional seating or low tables
-    // 16. Seating 1
-    float seating1Points[] = {
-        -0.6f, -0.2f, 0.0f,
-        -0.4f, -0.2f, 0.0f,
-        -0.4f, -0.1f, 0.0f,
-        -0.6f, -0.1f, 0.0f
-    };
-    Rectangle seating1(programID, VAO, seating1Points);
-    seating1.setColor(0.85f, 0.85f, 0.85f);
-    kioskElements.push_back(&seating1);
+        std::vector<float*> cols;
+        static bool oKeyPressed = false; 
 
-    // 17. Seating 2
-    float seating2Points[] = {
-        0.4f, -0.2f, 0.0f,
-        0.6f, -0.2f, 0.0f,
-        0.6f, -0.1f, 0.0f,
-        0.4f, -0.1f, 0.0f
-    };
-    Rectangle seating2(programID, VAO, seating2Points);
-    seating2.setColor(0.85f, 0.85f, 0.85f);
-    kioskElements.push_back(&seating2);
 
-    // 18. Small table 1
-    Circle smallTable1(programID, VAO, 0.05f, -0.5f, -0.15f, 12);
-    smallTable1.setColor(1.0f, 0.9f, 0.8f);
-    kioskElements.push_back(&smallTable1);
+        float* red = new float[3]{1,0,0};
+        float* green = new float[3]{0,1,0};
+        float* blue = new float[3]{0,0,1};
+        float* white = new float[3]{0,0,0};
+        float* black = new float[3]{1,1,1};
 
-    // 19. Small table 2
-    Circle smallTable2(programID, VAO, 0.05f, 0.5f, -0.15f, 12);
-    smallTable2.setColor(1.0f, 0.9f, 0.8f);
-    kioskElements.push_back(&smallTable2);
+        float* yellow = new float[3]{1,1,0};
+        float* cyan = new float[3]{0,1,1};
+        float* pink = new float[3]{1,0,1};
+        float* purple = new float[3]{0.5,0,1};
+        float* orange = new float[3]{1,0.5,0};
 
-    // 20. Entrance Area
-    float entrancePoints[] = {
-        -0.9f, -0.9f, 0.0f,
-        -0.7f, -0.9f, 0.0f,
-        -0.7f, -0.85f, 0.0f,
-        -0.9f, -0.85f, 0.0f
-    };
-    Rectangle entrance(programID, VAO, entrancePoints);
-    entrance.setColor(0.7f, 0.8f, 0.7f);
-    kioskElements.push_back(&entrance);
+        cols.push_back(red);
+        cols.push_back(green);
+        cols.push_back(blue);
+        cols.push_back(white);
+        cols.push_back(black);
+        cols.push_back(yellow);
+        cols.push_back(cyan);
+        cols.push_back(pink);
+        cols.push_back(purple);
+        cols.push_back(orange);
+        int colIndex = 0;
+        static int waiter = 0;
 
-    // Main loop
-    while (!glfwWindowShouldClose(window)) {
+        
+
+
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
         processInput(window);
 
-        glClearColor(0.9f, 0.9f, 0.9f, 1.0f); // Light background
+        /* Render here */
+        glClearColor(0.485f, 0.592f, 0.767f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // Draw all kiosk elements
-        for (Shape* element : kioskElements) {
-            element->draw();
+        //player.draw();
+        
+        // for(Shapes3D* sh: shp){
+        //     sh->draw();
+        // }
+
+        if(wiremode)
+            scene->wire_draw();
+
+        else
+            scene->draw();
+
+        //std::cout << temp << std::endl;
+
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
+
+        /* Poll for and process events */
+        glfwPollEvents();
+
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        {
+            scene->rotate(0.006, 'X');
+        }
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        {
+            scene->rotate(-0.006, 'X');
+        }
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        {
+            scene->rotate(0.006, 'Y');
+        }
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        {   
+            scene->rotate(-0.006, 'Y');
+        }
+        if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        {
+            scene->rotate(0.006, 'Z');          
         }
 
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        {
+            scene->rotate(-0.006, 'Z');
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS )
+        {
+            sel->rotate(0.06f, 'X');
+        }
+        if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
+        {
+            sel->rotate(-0.06f, 'X');
+        }
+        if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS )
+        {
+            sel->rotate(0.06f, 'Y');
+        }
+        if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+        {
+            sel->translate(-0.004,0,0);
+        }
+        if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+        {
+            sel->translate(0.004,0,0);
+        }
+        if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS )
+        {
+            sel->translate(0,0.004,0);
+        }
+        if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+        {
+            sel->translate(0,-0.004,0);
+        }
+        if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS )
+        {
+            sel->translate(0,0,0.004);
+        }
+        if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+        {
+            sel->translate(0,0,-0.004);
+        }
+        if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+        {   
+            wiremode = !wiremode;
+        }
+        if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+        {
+            sel->changeFaceColor();
+        }
+        if (glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
+        {
+            sel->setColor(0,1,0,1);
+        }
+        if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
+        {   
+            if(currentOp + 0.003 <= 1){
+                currentOp += 0.003;
+                sel->setOp(currentOp);
+            }
+        }
+        if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+        {
+            sel->translate(-0.004,0,0);
+        }
+        if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+        {   
+            sel->translate(0.004,0,0);
+        }
+        if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+        {  
+            //std::cout << waiter << std::endl;
+            if(waiter == 75){
+                waiter = 0;
+            }
+
+            if(waiter == 0){
+                colIndex++;
+                if(colIndex == 10){
+                    colIndex = 0;
+                    scene->updateSheetColor(cols[colIndex]);
+                }
+                else{
+                    scene->updateSheetColor(cols[colIndex]);
+                }
+                waiter++;
+            } else{
+                waiter++;
+            }
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+        {  
+            //std::cout << waiter << std::endl;
+            if(waiter == 50){
+                waiter = 0;
+            }
+
+            if(waiter == 0){
+                colIndex--;
+                if(colIndex < 0){
+                    colIndex = 9;
+                    scene->updateSheetColor(cols[colIndex]);
+                }
+                else{
+                    scene->updateSheetColor(cols[colIndex]);
+                }
+                waiter++;
+            } else{
+                waiter++;
+            }
+        }
+        if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+        {  
+            //std::cout << waiter << std::endl;
+            if(waiter == 75){
+                waiter = 0;
+            }
+
+            if(waiter == 0){
+                colIndex++;
+                if(colIndex == 10){
+                    colIndex = 0;
+                    scene->updateGlassColor(cols[colIndex]);
+                }
+                else{
+                    scene->updateGlassColor(cols[colIndex]);
+                }
+                waiter++;
+            } else{
+                waiter++;
+            }
+        }
+
+        if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
+        {  
+            //std::cout << waiter << std::endl;
+            if(waiter == 50){
+                waiter = 0;
+            }
+
+            if(waiter == 0){
+                colIndex--;
+                if(colIndex < 0){
+                    colIndex = 9;
+                    scene->updateGlassColor(cols[colIndex]);
+                }
+                else{
+                    scene->updateGlassColor(cols[colIndex]);
+                }
+                waiter++;
+            } else{
+                waiter++;
+            }
+        }
+        if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
+        {  
+            scene->updateGlassAlpha(0.004);
+        }
+        if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
+        {  
+            scene->updateGlassAlpha(-0.004);
+        }
+        if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
+        {  
+            //std::cout << waiter << std::endl;
+            if(waiter == 50){
+                waiter = 0;
+            }
+
+            if(waiter == 0){
+                colIndex--;
+                if(colIndex < 0){
+                    colIndex = 9;
+                    scene->updateLightColor(cols[colIndex]);
+                }
+                else{
+                    scene->updateLightColor(cols[colIndex]);
+                }
+                waiter++;
+            } else{
+                waiter++;
+            }
+        }
+        if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
+        {  
+            //std::cout << waiter << std::endl;
+            if(waiter == 50){
+                waiter = 0;
+            }
+
+            if(waiter == 0){
+                colIndex--;
+                if(colIndex < 0){
+                    colIndex = 9;
+                    scene->updateLightColor(cols[colIndex]);
+                }
+                else{
+                    scene->updateLightColor(cols[colIndex]);
+                }
+                waiter++;
+            } else{
+                waiter++;
+            }
+        }
     }
 
-    // Cleanup
+    // Clean up
     glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
     glDeleteProgram(programID);
 
+    // Terminate GLFW
     glfwTerminate();
     return 0;
 }
 
-void processInput(GLFWwindow *window) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+void processInput(GLFWwindow *window)
+{
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }

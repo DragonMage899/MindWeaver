@@ -34,6 +34,14 @@ public:
 
     virtual ~Shape() {}
 
+    float getAlpha() const {
+        return color[3];
+    }
+
+    Vector<3> getShapeColorAsVector3() const {
+        return Vector<3>(new double[3]{color[0], color[1], color[2]});
+    }
+
     void updateName(std::string n){
         name = n;
     }
@@ -53,14 +61,14 @@ public:
             std::cout << "End..." << std::endl;
         }
     }
-    void setColor(float red, float green, float blue, float alpha = 1.0f) {
+    virtual void setColor(float red, float green, float blue, float alpha = 1.0f) {
         color[0] = red;
         color[1] = green;
         color[2] = blue;
         color[3] = alpha;
     }
 
-    virtual void updateOpacity(float op){
+    void updateOpacity(float op){
         color[3] = op;
     }
 
