@@ -8,31 +8,31 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9951321152bdbb4b",
+            "id": "8d3b67cb25585fab",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
+                "file": "Planning/ST1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ch Metaheuristics"
+              "title": "ST1"
             }
           },
           {
-            "id": "5a5e5f684305e33c",
+            "id": "097178260fb70bff",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 314 Artificial Intelligence/Machine Leanring.md",
+                "file": "Cos 330/Notes/Ch1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Machine Leanring"
+              "title": "Ch1"
             }
           }
         ],
@@ -87,6 +87,20 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "b6a3828318d84108",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cos 226/Lecture/Lecture 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Lecture 1"
             }
           }
         ]
@@ -157,13 +171,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Cos 332 Computer Network/Book/st2.md",
+                "file": "mentorship/Next Meeting.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of st2"
+              "title": "Outline of Next Meeting"
             }
           }
         ],
@@ -176,6 +190,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -184,53 +199,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5a5e5f684305e33c",
+  "active": "097178260fb70bff",
   "lastOpenFiles": [
-    "Pasted image 20250606061616.png",
-    "Pasted image 20250606061548.png",
-    "Pasted image 20250606061442.png",
-    "Pasted image 20250606061308.png",
-    "Pasted image 20250606061225.png",
-    "Pasted image 20250606061217.png",
-    "Pasted image 20250606061210.png",
-    "Pasted image 20250606061206.png",
-    "Pasted image 20250606061156.png",
-    "Cos 314 Artificial Intelligence/cts.md",
-    "Pasted image 20250606052841.png",
-    "Pasted image 20250606052833.png",
-    "Planning/Days.md",
-    "Cos 314 Artificial Intelligence/Ch Metaheuristics.md",
-    "Cos 314 Artificial Intelligence/Problem Solving.md",
-    "Cos 314 Artificial Intelligence/Ch 4.md",
-    "Cos 314 Artificial Intelligence/Ch 1 & 2.md",
-    "Cos 314 Artificial Intelligence/Machine Leanring.md",
-    "2pj(e)​−1.md",
-    "Cos 314 Artificial Intelligence/Metaheuristics.md",
-    "Cos 314 Artificial Intelligence/Chat/Meta heuristics/General.md",
-    "Cos 314 Artificial Intelligence/Chat/Meta heuristics/1.Gen Algo.md",
-    "Cos 314 Artificial Intelligence/gemini/Machine Learning gemini.pdf",
-    "Cos 314 Artificial Intelligence/gemini/other/Part 3.pdf",
-    "Cos 314 Artificial Intelligence/gemini/other/Part 2.pdf",
-    "Cos 314 Artificial Intelligence/gemini/other/Part 1.pdf",
-    "Cos 314 Artificial Intelligence/gemini/other",
-    "Cos 314 Artificial Intelligence/Book/Chapter 1.md",
-    "Cos 301 Software eng/Meetings/Mentor Meeting.md",
-    "Cos 314 Artificial Intelligence/gemini/Untitled.md",
-    "Cos 314 Artificial Intelligence/gemini/Machine Learning.pdf",
-    "Cos 314 Artificial Intelligence/gemini/logobig2 [MConverter.eu].mp4",
-    "Cos 332 Computer Network/Book/Examples.md",
-    "Cos 301 Software eng/Meetings/Meeting1 11-05.md",
-    "Cos 332 Computer Network/gemini/Chapter 8.pdf",
-    "Cos 332 Computer Network/gemini/Chapter 9.pdf",
-    "Cos 332 Computer Network/gemini/Chapter 7 Complete.pdf",
-    "Cos 332 Computer Network/Book/Chapter 7 Network Layer.md",
+    "Cos 226/Notes/Ch4 Shared Memory.md",
+    "Cos 330/Notes/Ch1.md",
+    "Cos 330/Notes",
+    "Cos 330",
+    "Cos 226/Notes/gem/ch7 spin locks and cotention.pdf",
+    "Cos 226/Notes/gem/ch5 primitives and sync.pdf",
+    "Cos 226/Notes/gem/ch4 slides.pdf",
+    "Planning/ST1.md",
+    "Cos 226/Notes/gem",
+    "Cos 226/Notes/Ch3 Concurrent object.md",
+    "Pasted image 20250907135527.png",
+    "Pasted image 20250907135504.png",
+    "Pasted image 20250907135451.png",
+    "Pasted image 20250907135430.png",
+    "Pasted image 20250907135422.png",
+    "Pasted image 20250907135408.png",
+    "Pasted image 20250907135314.png",
+    "Pasted image 20250907135305.png",
+    "Pasted image 20250907135258.png",
+    "Pasted image 20250907135109.png",
+    "Planning/Test week.md",
+    "Planning/Test Dates.md",
+    "Cos 226/Notes/Ch2 Mutual Exclusion.md",
+    "Cos 226/Notes/Ch1 Intro.md",
+    "Cos 226/Lecture/Lecture 1.md",
+    "Untitled 2.base",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Cos 226/Untitled 1.md",
+    "Cos 226/Untitled.md",
+    "Cos 226/Untitled 2.md",
+    "Cos 226/Notes",
+    "Planning/Due Dates.md",
+    "Planning/Done/rep.md",
+    "Planning/Done/Days.md",
+    "Cos 341/HW1.md",
+    "Cos 226/Book/CH2 - Peterson.md",
+    "Cos 226/Book/CH2 - Bakers.md",
+    "Cos 341/ch1.md",
+    "Cos 341/HW2.md",
+    "Cos 301 Software eng/Capstone Notes.md",
+    "Cos 301 Software eng/Diagrams/deploy.md",
+    "Cos 301 Software eng/Capstone Prop Notes.md",
+    "mentorship/Next Meeting.md",
     "mentorship/roadmap.md",
-    "Cos 314 Artificial Intelligence/Assignment 1 notes.md",
-    "Cos 314 Artificial Intelligence/Lectures/ST1.md",
-    "Cos 314 Artificial Intelligence/Lectures/Lecture 2.md",
-    "Cos 314 Artificial Intelligence/Lectures/Lecture 3.md",
-    "Cos 314 Artificial Intelligence/Lectures/Lecture 4.md",
-    "Cos 314 Artificial Intelligence/Lectures/Lecture 8.md",
-    "Cos 314 Artificial Intelligence/Lectures/Lecture 6.md"
+    "mentorship/scc meeting.md"
   ]
 }
