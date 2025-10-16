@@ -8,34 +8,61 @@
         "type": "tabs",
         "children": [
           {
-            "id": "9658625108804cb8",
+            "id": "cd8b4f20e33f2ff0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TryHackMe/Paths/Tools/Metasploit/Introduction.md",
+                "file": "CTF's/picoGym/Forensics/RED.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Introduction"
+              "title": "RED"
             }
           },
           {
-            "id": "d49b4bf19a47fd07",
+            "id": "677b9d071ab19463",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CTF's/Commands.md",
+                "file": "Courses/Technical Writing/Google Tech/Technical Writing One.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Commands"
+              "title": "Technical Writing One"
+            }
+          },
+          {
+            "id": "d78c8e8f8ce5f2b0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CTF's/2025/MWR ctf/Task 10 Authorisation bypass.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Task 10 Authorisation bypass"
+            }
+          },
+          {
+            "id": "1e08a640dc4bc6f9",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.9.14"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.9.14"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -86,6 +113,16 @@
               "state": {},
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "2d8077c58a69d7b8",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
         ]
@@ -154,13 +191,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TryHackMe/Paths/Tools/Metasploit/Introduction.md",
+                "file": "CTF's/2025/MWR ctf/Task 5 Directory Brute Forcing.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Introduction"
+              "title": "Outline of Task 5 Directory Brute Forcing"
             }
           }
         ],
@@ -168,66 +205,68 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "daily-notes:Open today's daily note": false
     }
   },
-  "active": "9658625108804cb8",
+  "active": "677b9d071ab19463",
   "lastOpenFiles": [
-    "Pasted image 20250504161837.png",
-    "Pasted image 20250504160822.png",
-    "Pasted image 20250504160720.png",
-    "Pasted image 20250504160631.png",
-    "Pasted image 20250504160511.png",
-    "Pasted image 20250504155935.png",
-    "Pasted image 20250504155906.png",
-    "TryHackMe/Paths/Fundamentals/Network Services/SMTP.md",
-    "TryHackMe/Paths/Tools/Metasploit/Introduction.md",
-    "TryHackMe/Paths/Tools",
-    "TryHackMe/Paths/Tools/Metasploit",
-    "CTF's/Commands.md",
-    "TryHackMe/Commands.md",
-    "TryHackMe/Paths/Cyber Basics.md",
-    "CTF's/MWR internship/Write Up.md",
-    "Pasted image 20250428131251.png",
-    "Pasted image 20250428131310.png",
-    "Pasted image 20250428131214.png",
-    "Pasted image 20250428131143.png",
-    "CTF's/MWR internship/Task 5 Directory Brute Forcing.md",
-    "CTF's/MWR internship/Tasks.md",
-    "CTF's/MWR internship/Task 3 Steganography.md",
-    "CTF's/MWR internship/Write Up.pdf",
-    "CTF's/MWR internship/Task 14 shell.md",
-    "CTF's/MWR internship/task12/recon.txt",
-    "CTF's/MWR internship/Task 12 Arbitrary File uploads.md",
-    "CTF's/MWR internship/task12/jpg_shell5.php",
-    "CTF's/MWR internship/task12/jpg_shell4.php",
-    "CTF's/MWR internship/task12/jpg_shell3.php",
-    "CTF's/MWR internship/task12/jpg_shell2.php",
-    "CTF's/MWR internship/task12/jpg_shell1 copy 3.php",
-    "CTF's/MWR internship/task12/jpg_shell1 copy 2.php",
-    "CTF's/MWR internship/task13/venv/lib/python3.13/site-packages/idna-3.10.dist-info/LICENSE.md",
-    "CTF's/MWR internship/Task 13 Race conditions.md",
-    "CTF's/MWR internship/Task 11 Logic flaws.md",
-    "CTF's/MWR internship/Task 10 Authorisation bypass.md",
-    "CTF's/MWR internship/Task 9 Directory Traversal.md",
-    "CTF's/MWR internship/Task 8 Union SQL injection.md",
-    "CTF's/MWR internship/Task 7 SQL injection.md",
-    "CTF's/MWR internship/Task 6 Hash Cracking.md",
-    "CTF's/MWR internship/Task 4 Cryprography.md",
-    "CTF's/MWR internship/Task 2 Scanning.md",
-    "TryHackMe/Paths/Fundamentals/Network Services/NFS.md",
-    "TryHackMe/King of the hills.md",
-    "TryHackMe/Order.md",
-    "TryHackMe/Paths/Fundamentals.md",
+    "Courses/Technical Writing/TW one.md",
+    "Courses/Technical Writing/Google Tech/Technical Writing One.md",
+    "Courses/Technical Writing/Google Tech",
+    "Courses/Technical Writing/Google Tech.zip",
+    "Courses/Google Tech.zip",
+    "Courses/Technical Writing",
+    "CTF's/Orange Cyber Challenge/Walkthrough.md",
+    "CTF's/2025/MWR ctf/Task 5 Directory Brute Forcing.md",
+    "CTF's/2025/MWR ctf/Write Up.pdf",
+    "CTF's/2025/MWR ctf/Task 10 Authorisation bypass.md",
+    "CTF's/2025/MWR ctf/Task 9 Directory Traversal.md",
+    "CTF's/2025/MWR ctf/wordlist.txt",
+    "CTF's/2025/MWR ctf/Untitled",
+    "CTF's/2025/MWR ctf/Task 3 Steganography.md",
+    "CTF's/2025/MWR ctf/Task 2 Scanning.md",
+    "CTF's/2025/MWR ctf/Task2/mtEverest1.jpg",
+    "CTF's/picoGym/Forensics/RED.md",
+    "Pasted image 20251002180707.png",
+    "Pasted image 20251002174658.png",
+    "CTF's/Commands CTF.md",
+    "Courses/TryHackMe/Walkthroughs/Insekube.md",
+    "Pasted image 20251002155850.png",
+    "Pasted image 20251002155803.png",
+    "Pasted image 20251002152831.png",
+    "Pasted image 20251002150516.png",
+    "Pasted image 20251002150155.png",
+    "Pasted image 20251002131517.png",
+    "Pasted image 20251002131438.png",
+    "CTF's/Web Attacks.md",
+    "CTF's/Orange Cyber Challenge",
+    "CTF's/Notes.md",
+    "CTF's/Commands System.md",
+    "CTF's/Attack Plan.md",
+    "Work/OCD/Cover.md",
+    "Courses/TryHackMe/Advent of Cyber/Notes.md",
+    "Work/Untitled.md",
+    "Work/OCD",
+    "general/RFC/RFC 1918 Private Address Allocation.md",
+    "Courses/TryHackMe/Walkthroughs/Looney Tunables.md",
+    "general/RFC",
+    "Courses/TryHackMe/Commands.md",
+    "CTF's/picoGym/Binary/PIE 2.md",
+    "CTF's/2025/BSides/2025/del hidden.md",
+    "CTF's/picoGym/Web/SSTI1.md",
+    "Courses/TryHackMe/Walkthroughs/1.link.md",
+    "Roadmap/Goals.md",
     "Untitled.canvas",
     "Google cyber course/Untitled.canvas"
   ]

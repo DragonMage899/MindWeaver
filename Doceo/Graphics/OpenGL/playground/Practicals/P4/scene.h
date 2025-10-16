@@ -28,6 +28,16 @@ class Scene{
         this->origin = Vector<3>(new double[3]{0,0,0});
     }
 
+    Scene(unsigned int sid, unsigned int vao, int Res) : shader_program(sid), vao(vao){
+        currentLightColor = Vector<3>(new double[3]{1.0, 1.0, 1.0});
+        setUpLight();
+        setUpBacksheet();
+        setUpBottomSheet();
+        setUpGlass();
+        
+        this->origin = Vector<3>(new double[3]{0,0,0});
+    }
+
     void draw(){
 
         this->updateLighting();
@@ -179,7 +189,21 @@ class Scene{
         Vector<3> sphereCenter(new double[3]{0.0, 0.2, 0.0});
         Vector<3> sphereColor(new double[3]{0.2, 0.5, 0.8});
         double sphereRadius = 0.03;
-        int sphereQuality = 20; 
+        int sphereQuality = 50; 
+        Sphere* light = new Sphere(sphereCenter, sphereRadius, sphereColor, shader_program, vao, sphereQuality);
+        light->translate(0.2,0,0);
+        light->changeFaceColor();
+
+        this->lightGlobe = light;
+
+        objects.push_back(light);
+    }
+
+    void setUpLight(int Res){
+        Vector<3> sphereCenter(new double[3]{0.0, 0.2, 0.0});
+        Vector<3> sphereColor(new double[3]{0.2, 0.5, 0.8});
+        double sphereRadius = 0.3;
+        int sphereQuality = Res; 
         Sphere* light = new Sphere(sphereCenter, sphereRadius, sphereColor, shader_program, vao, sphereQuality);
         light->translate(0.2,0,0);
         light->changeFaceColor();

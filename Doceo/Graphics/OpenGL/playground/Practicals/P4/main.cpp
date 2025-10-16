@@ -181,6 +181,9 @@ int main(void){
         double temp = 0;
 
         //Scene
+        // std::cout << "Enter Quality (between 3 and 100)" << std::endl;
+        // int qual;
+        // std::cin >> qual;
         Scene* scene = new Scene(programID, VAO);
 
         Shapes3D* glb = scene->getGlobe();
@@ -226,10 +229,27 @@ int main(void){
 
         
 
-
+    GLfloat lastTime = glfwGetTime();
+    int nbFrames = 0;
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
+
+        GLfloat currentTime = glfwGetTime();
+        GLfloat deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+        nbFrames++;
+        static float fpsTime = 0.0f;
+        fpsTime += deltaTime;
+        if (fpsTime >= 1.0f) {
+            char title[256];
+            snprintf(title, sizeof(title), "Experiment - [FPS: %d]", nbFrames);
+            glfwSetWindowTitle(window, title);
+            printf("FPS: %d\n", nbFrames);
+            nbFrames = 0;
+            fpsTime = 0.0f;
+        }
+
         processInput(window);
 
         /* Render here */

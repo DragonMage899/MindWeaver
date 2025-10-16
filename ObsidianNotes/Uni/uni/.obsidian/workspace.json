@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Planning/ST1.md",
+                "file": "Planning/ST1 scopes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ST1"
+              "title": "ST1 scopes"
             }
           },
           {
@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Cos 330/Notes/Ch1.md",
+                "file": "Cos326/Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Ch1"
+              "title": "Notes"
             }
           }
         ],
@@ -201,6 +201,21 @@
   },
   "active": "097178260fb70bff",
   "lastOpenFiles": [
+    "Planning/ST1 scopes.md",
+    "Cos326/Notes.md",
+    "Cos326",
+    "Planning/Due Dates.md",
+    "Planning/Test week.md",
+    "Planning/Test Dates.md",
+    "Cos 226/Notes/gem/ch7 spin locks and cotention.pdf",
+    "Cos 226/Notes/gem/ch5 primitives and sync.pdf",
+    "Cos 226/Notes/gem/ch4 slides.pdf",
+    "Cos 226/Notes/Ch2 Mutual Exclusion.md",
+    "Cos 226/Notes/Ch3 Concurrent object.md",
+    "Cos 226/Notes/Ch1 Intro.md",
+    "Cos 226/Notes/Ch4 Shared Memory.md",
+    "Cos 341/Proj PH1.md",
+    "Cos 330/Notes/Ch1.md",
     "Pasted image 20250908204724.png",
     "Pasted image 20250908204709.png",
     "Pasted image 20250908204429.png",
@@ -211,21 +226,9 @@
     "Pasted image 20250908204019.png",
     "Pasted image 20250908202519.png",
     "Pasted image 20250908201914.png",
-    "Pasted image 20250908193058.png",
-    "Cos 226/Notes/Ch4 Shared Memory.md",
-    "Cos 330/Notes/Ch1.md",
     "Cos 330/Notes",
     "Cos 330",
-    "Cos 226/Notes/gem/ch7 spin locks and cotention.pdf",
-    "Cos 226/Notes/gem/ch5 primitives and sync.pdf",
-    "Cos 226/Notes/gem/ch4 slides.pdf",
-    "Planning/ST1.md",
     "Cos 226/Notes/gem",
-    "Cos 226/Notes/Ch3 Concurrent object.md",
-    "Planning/Test week.md",
-    "Planning/Test Dates.md",
-    "Cos 226/Notes/Ch2 Mutual Exclusion.md",
-    "Cos 226/Notes/Ch1 Intro.md",
     "Cos 226/Lecture/Lecture 1.md",
     "Untitled 2.base",
     "Untitled 1.base",
@@ -233,8 +236,6 @@
     "Cos 226/Untitled 1.md",
     "Cos 226/Untitled.md",
     "Cos 226/Untitled 2.md",
-    "Cos 226/Notes",
-    "Planning/Due Dates.md",
     "Planning/Done/rep.md",
     "Planning/Done/Days.md",
     "Cos 341/HW1.md",
@@ -245,7 +246,6 @@
     "Cos 301 Software eng/Capstone Notes.md",
     "Cos 301 Software eng/Diagrams/deploy.md",
     "Cos 301 Software eng/Capstone Prop Notes.md",
-    "mentorship/Next Meeting.md",
-    "mentorship/roadmap.md"
+    "mentorship/Next Meeting.md"
   ]
 }
